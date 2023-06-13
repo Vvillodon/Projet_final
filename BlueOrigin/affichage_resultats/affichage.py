@@ -1,5 +1,5 @@
 
-class affichage():
+class Affichage():
     def __init__():
         pass
     
