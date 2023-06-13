@@ -1,8 +1,3 @@
-'''Liste des fonctions 
-affichage de la trajectoire 
-affichage du plan de vol 
-affichage physique 
-'''
 
 class affichage():
     def __init__():
@@ -15,3 +10,6 @@ class affichage():
         pass
     
     def affichage_physique():
+        pass
+    
+    
