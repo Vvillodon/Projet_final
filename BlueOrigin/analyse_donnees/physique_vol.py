@@ -2,7 +2,7 @@
 
 from math import sqrt
 from plan_vol import PlanVol
-
+from Projet_final.BlueOrigin.conditions_entrees.profil_vent import
 class PhysiqueVol(PlanVol):
     g=9.81
     isp=260
@@ -13,13 +13,18 @@ class PhysiqueVol(PlanVol):
 
     def __init__(self,
                  masse_payload : int):
-        super().__init__(data)
+        PlanVol.__init__(data)  # [[t, pos_x, pos_y, pos_z, vx, vy, vz, x_cart, y_cart, z_cart], [ti+1, ...],...]
         self.masse_payload = masse_payload
         self.plan_vol = self.creer_plan_vol()
 
     def calcul_vitesse_normee(self):
 
-        vitesse
+        liste_vitesses_normees = []
+        for ligne in self.data:
+            for elt in self.data[ligne]:
+                vx = self.data[ligne][4]
+                vy = self.data[ligne][4]
+                vitesses_normees = sqrt(self.data)
 
 
     def deltaV_burnout(self):
