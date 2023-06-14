@@ -1,12 +1,12 @@
 import math
 import csv
-
+import numpy as np
 
 class Profil_vent():
     def __init__(self):
         pass
     
-    def calcul_vent(self,altitude_minimal ,altitude_maximal,vitesse_sol, rugosite):
+    def calcul_vent(self,altitude ,vitesse_sol, rugosite):
         """
         
 
@@ -28,19 +28,17 @@ class Profil_vent():
 
         """
         z0 = rugosite
-        h1 = altitude_minimal
-        h2 = altitude_maximal
+        
         V1 = vitesse_sol
+        h_zero=altitude[0]
 
         result = {}
+        profil_vent=V1 * (np.log(altitude/z0)) / (np.log(h_zero/z0))
 
-        for altitude in range(h1, h2 + 1):
-            vitesse_vent = V1 * (math.log(altitude/z0)) / (math.log(h1/z0))
-            result[altitude] = vitesse_vent
             
-        return result
+        return profil_vent
         
     
+altitude=(np.linspace(100,10000,1000))
 
-
-print(Profil_vent().calcul_vent(100, 2000, 10, 0.1))
+print(Profil_vent().calcul_vent(altitude, 10, 0.1))
