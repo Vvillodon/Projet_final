@@ -12,18 +12,13 @@ class Profil_vent():
 
         Parameters
         ----------
-        altitude_minimal : TYPE
-            DESCRIPTION.
-        altitude_maximal : TYPE
-            DESCRIPTION.
-        vitesse_sol : TYPE
-            DESCRIPTION.
-        rugosite : TYPE
-            DESCRIPTION.
+        altitude : array.
+        vitesse_sol :  int
+        rugosite : float
 
         Returns
         -------
-        result : TYPE
+        profil_vent : TYPE
             DESCRIPTION.
 
         """
