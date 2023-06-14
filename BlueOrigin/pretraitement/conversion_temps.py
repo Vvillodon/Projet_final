@@ -1,3 +1,6 @@
+"""DESCRIPTION FICHIER"""
+
+
 import csv
 
 
@@ -64,17 +67,18 @@ def filter_data_by_sampling_rate(data, sampling_rate):
 
 
 # Lecture du fichier CSV
-filename = "C:\\Users\\noeba\\PycharmProjects\\MGA802_Project\\Projet_final\\Data\\truth.csv"  # Remplacez "nom_du_fichier.csv" par le nom réel de votre fichier
+filename = "C:\\Users\\alice\\Documents\\MGA802 - Python\\Projet_Final\\Projet_final\\Data\\truth.csv"  # Remplacez "nom_du_fichier.csv" par le nom réel de votre fichier
 data = read_csv_file(filename)
 
 # Conversion du temps de nanosecondes en secondes et ajustement du nouveau temps de référence
-data = convert_nanoseconds_to_seconds(data)
+new_data = convert_nanoseconds_to_seconds(data)
+
 
 # Filtrage des données avec un taux d'échantillonnage de 1 seconde
 sampling_rate = 1
-filtered_data = filter_data_by_sampling_rate(data, sampling_rate)
+filtered_data = filter_data_by_sampling_rate(new_data, sampling_rate)
 
 # Écriture des données filtrées dans un nouveau fichier CSV
-output_filename = "C:\\Users\\noeba\\PycharmProjects\\MGA802_Project\\Projet_final\\Data\\truth_filtered.csv"
-fieldnames = data[0].keys()
+output_filename = "C:\\Users\\alice\\Documents\\MGA802 - Python\\Projet_Final\\Projet_final\\Data\\truth.csv"
+fieldnames = new_data[0].keys()
 write_csv_file(output_filename, filtered_data, fieldnames)
