@@ -41,10 +41,12 @@ def convert_nanoseconds_to_seconds(data):
     :return: Les données avec les valeurs de temps converties en secondes.
     """
     converted_data = []
-    reference_time = float(data[0]["TIME_NANOSECONDS_TAI "]) / 1000000000  # Nouveau temps de référence
+    reference_time = 1.60259621021e+18 / 1000000000  # Nouveau temps de référence
     for row in data:
-        row["TIME_NANOSECONDS_TAI "] = (float(row["TIME_NANOSECONDS_TAI "]) / 1000000000) - reference_time
-        converted_data.append(row)
+        time = float(row["TIME_NANOSECONDS_TAI "])
+        if time >= 1.60259621021e+18:
+            row["TIME_NANOSECONDS_TAI "] = (float(row["TIME_NANOSECONDS_TAI "]) / 1000000000) - reference_time
+            converted_data.append(row)
     return converted_data
 
 
