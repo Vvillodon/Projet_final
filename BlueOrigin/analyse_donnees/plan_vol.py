@@ -18,23 +18,30 @@ class PlanVol():
         tp_touchdown=0
         
         altitude_liftoff=self.data[1][9]
-        i=1
+        i=2
         while tp_liftoff==0 or tp_MECO==0 or tp_apogee==0 or tp_deploy_brakes==0 or tp_restart_ignition==0 or tp_touchdown==0:
             altitude=self.data[i][9]
-            
+            altitude_before=self.data[i][9]
             deltaV=np.linalg.norm([self.data[i][4],self.data[i][5],self.data[i][6]])-np.linalg.norm([self.data[i-1][4],self.data[i-1][5],self.data[i-1][6]])
+            deltaV_before=np.linalg.norm([self.data[i-1][4],self.data[i-1][5],self.data[i-1][6]])-np.linalg.norm([self.data[i-2][4],self.data[i-2][5],self.data[i-2][6]])
+
             if tp_liftoff==0 and altitude-altitude_liftoff>=1: 
-                tp_liftoff=data[i][0]
-            elif tp_MECO==0:
-                pass
-            elif tp_apogee==0:
-                pass
-            elif tp_deploy_brakes==0:
-                pass
-            elif tp_restart_ignition==0:
-                pass
-            elif tp_touchdown==0:
-                pass
+                tp_liftoff=self.data[i][0]
+                
+            elif tp_liftoff!=0 and tp_MECO==0 and -9.81<deltaV<-9.5:
+                tp_MECO=self.data[i][0]
+                
+            elif tp_MECO!=0 and tp_apogee==0 and np.sign(altitude-altitude_before)==-1:
+                tp_apogee=self.data[i][0]
+                
+            elif  tp_apogee!=0 and tp_deploy_brakes==0 and np.sign(deltaV-deltaV_before)==-1 and -10<deltaV<0:
+                tp_deploy_brakes=self.data[i][0]
+                
+            elif tp_deploy_brakes!=0 and tp_restart_ignition==0 and np.sign(deltaV-deltaV_before)==-1 and -10<deltaV<0:
+                tp_deploy_brakes=self.data[i][0]
+                
+            elif tp_restart_ignition!=0 and tp_touchdown==0 and altitude-altitude_liftoff<=1:
+                tp_touchdown=self.data[i][0]
             
             i+=1
         
