@@ -1,5 +1,6 @@
 """ DESCRIPTION FICHIER """
 
+from math import sqrt
 from plan_vol import PlanVol
 
 class PhysiqueVol(PlanVol):
@@ -11,20 +12,25 @@ class PhysiqueVol(PlanVol):
     hauteur_fusee = 15 # m
 
     def __init__(self,
-                 masse_payload : int,
-                 data : list):
+                 masse_payload : int):
+        super().__init__(data)
         self.masse_payload = masse_payload
-        self.date = data  # [[ti, Xi, Yi, Zi, Vxi, Vyi, Vzi], [i+1], ...]
+        self.plan_vol = self.creer_plan_vol()
+
+    def calcul_vitesse_normee(self):
+
+        vitesse
+
 
     def deltaV_burnout(self):
-        self.deltaV_burnout = self.
+        data_meco = self.plan_vol['MECO'][]
+
 
     def calcul_debit_massique(self):
 
         pass
 
-    def calcul_vitesse(self):
-        pass
+
 
     def calcul_poussee(self):
         pass
