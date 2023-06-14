@@ -1,4 +1,6 @@
 import csv
+import math
+
 from pyproj import CRS, Transformer
 
 class DataProcessor:
@@ -32,20 +34,31 @@ class DataProcessor:
             writer.writeheader()
             writer.writerows(data)
 
-    def convert_ecef_to_lla(self):
+    def convert_ecef_to_cartesian(self):
         """
         Convertit les positions du repère ECEF vers le repère LLA (Latitude, Longitude, Altitude).
 
         """
-        transformer = Transformer.from_crs(CRS.from_epsg(4978), CRS.from_epsg(4326))
+        a = 6372368.0  # Demi-grand axe de la Terre (m)
         for row in self.data:
-            pos_X = float(row["pos_X"])
-            pos_Y = float(row["pos_Y"])
-            pos_Z = float(row["pos_Z"])
-            lon, lat, alt = transformer.transform(pos_X, pos_Y, pos_Z)
-            row["Latitude"] = lat
-            row["Longitude"] = lon
-            row["Altitude"] = alt
+            pos_x = float(row["pos_X"])
+            pos_y = float(row["pos_Y"])
+            pos_z = float(row["pos_Z"])
+
+            # Calcul des coordonnées cartésiennes
+            r = math.sqrt(pos_x ** 2 + pos_y ** 2 + pos_z ** 2)
+            theta = math.acos(pos_z / r)
+            phi = math.atan2(pos_y, pos_x)
+
+            # Conversion en coordonnées cartésiennes sur Terre
+            z_cartesian = r - a
+            x_cartesian = theta * a - 6533890.282256417
+            y_cartesian = phi * a - -11650966.007387657
+
+            row["x_cartesian"] = x_cartesian
+            row["y_cartesian"] = y_cartesian
+            row["z_cartesian"] = z_cartesian
+
 
     def filter_and_rename_columns(self):
         """
@@ -75,7 +88,7 @@ class DataProcessor:
         :param output_filename: Le nom du fichier CSV de sortie.
         """
         self.filter_and_rename_columns()
-        self.convert_ecef_to_lla()
+        self.convert_ecef_to_cartesian()
 
         fieldnames = self.data[0].keys()
         self.write_csv_file(output_filename, self.data, fieldnames)
