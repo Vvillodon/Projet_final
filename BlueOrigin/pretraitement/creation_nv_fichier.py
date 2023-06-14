@@ -3,6 +3,7 @@ import math
 
 from pyproj import CRS, Transformer
 
+
 class DataProcessor:
     def __init__(self, filename):
         self.filename = filename
@@ -59,7 +60,6 @@ class DataProcessor:
             row["y_cartesian"] = y_cartesian
             row["z_cartesian"] = z_cartesian
 
-
     def filter_and_rename_columns(self):
         """
         Filtre les colonnes et les renomme dans les données.
@@ -92,6 +92,10 @@ class DataProcessor:
 
         fieldnames = self.data[0].keys()
         self.write_csv_file(output_filename, self.data, fieldnames)
+        data_new = []
+        data_new = [[float(value) for value in row.values()] for row in self.data]
+
+        return data_new
 
 
 # Utilisation de la classe DataProcessor

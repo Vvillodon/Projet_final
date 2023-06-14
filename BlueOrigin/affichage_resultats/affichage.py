@@ -9,7 +9,7 @@ class TrajectoryDisplay:
     def plot_trajectory(self):
         fig = plt.figure()
         ax = fig.add_subplot(111, projection='3d')
-        ax.plot(self.rocket.pos_x, self.rocket.pos_y, self.rocket.pos_z)
+        ax.plot(self.rocket.x_cartesian, self.rocket.y_cartesian, self.rocket.z_cartesian)
         ax.set_xlabel('X')
         ax.set_ylabel('Y')
         ax.set_zlabel('Z')
@@ -20,3 +20,4 @@ class TrajectoryDisplay:
 
     def affichage_physique(self):
         pass
+
