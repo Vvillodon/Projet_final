@@ -49,7 +49,7 @@ class DataProcessor:
             # Calcul des coordonnées cartésiennes
             r = math.sqrt(pos_x ** 2 + pos_y ** 2 + pos_z ** 2)
             theta = math.acos(pos_z / r)
-            phi = math.atan2(pos_y, pos_x)
+            phi = float(math.atan2(pos_y, pos_x))
 
             # Conversion en coordonnées cartésiennes sur Terre
             z_cartesian = r - a

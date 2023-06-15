@@ -6,3 +6,4 @@ output_filename = "C:\\Users\\noeba\\PycharmProjects\\MGA802_Project\\Projet_fin
 processor = BlueOrigin.DataProcessor(filename)
 data = processor.process_data(output_filename)
 
+BlueOrigin.Affichage(data).plot_trajectory()
