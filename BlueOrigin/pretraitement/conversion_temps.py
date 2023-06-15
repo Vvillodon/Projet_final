@@ -1,6 +1,5 @@
 import csv
-from Projet_final.globs import (CSV_FILTERED_PATH_DEFAULT,
-                                FINAL_CSV_FILTERED_PATH_DEFAULT)
+from globs import (CSV_PATH_DEFAULT, CSV_FILTERED_PATH_DEFAULT)
 
 class ConversionTemps:
     def __init__(self, filename):
@@ -64,6 +63,7 @@ class ConversionTemps:
                 filtered_data.append(row)
                 last_sampled_time = time
         self.data = filtered_data
+        print(self.data)
 
     def process_data(self, output_filename, sampling_rate=1):
         """
@@ -82,8 +82,8 @@ class ConversionTemps:
 
 # Utilisation de la classe DataProcessor
 
-filename = CSV_FILTERED_PATH_DEFAULT
-output_filename = FINAL_CSV_FILTERED_PATH_DEFAULT
+filename = CSV_PATH_DEFAULT
+output_filename = CSV_FILTERED_PATH_DEFAULT
 
 conversion = ConversionTemps(filename)
 conversion.process_data(output_filename)
