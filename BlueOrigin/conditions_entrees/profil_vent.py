@@ -3,7 +3,7 @@ import csv
 import numpy as np
 
 
-class Profil_vent():
+class ProfilVent():
     def __init__(self, altitude):
         self.altitude = altitude
     
@@ -37,6 +37,6 @@ class Profil_vent():
     
 altitude=(np.linspace(100,10000,1000))
 
-print(Profil_vent().calcul_vent(altitude, 10, 0.1))
+print(ProfilVent(altitude).calcul_vent( 10, 0.1))
 
-pv = Profil_vent()
+pv = ProfilVent(altitude)
