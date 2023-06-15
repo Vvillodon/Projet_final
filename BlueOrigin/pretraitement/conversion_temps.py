@@ -1,5 +1,6 @@
 import csv
-from Projet_final.globs import CSV_FILTERED_PATH_DEFAULT, FINAL_CSV_FILTERED_PATH_DEFAULT
+from Projet_final.globs import (CSV_FILTERED_PATH_DEFAULT,
+                                FINAL_CSV_FILTERED_PATH_DEFAULT)
 
 class ConversionTemps:
     def __init__(self, filename):
