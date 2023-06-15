@@ -1,7 +1,7 @@
 """ DESCRIPTION FICHIER """
 
 from math import sqrt
-from plan_vol import PlanVol
+from .plan_vol import PlanVol
 
 
 class PhysiqueVol(PlanVol):
@@ -48,7 +48,8 @@ class PhysiqueVol(PlanVol):
 
     def deltaV_burnout(self):
 
-        data_meco = self.plan_vol['MECO'][]
+        # data_meco = self.plan_vol['MECO'][]
+        pass
 
 
     def calcul_debit_massique(self):

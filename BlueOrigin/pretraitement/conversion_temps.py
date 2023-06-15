@@ -80,7 +80,7 @@ class ConversionTemps:
 
 
 # Utilisation de la classe DataProcessor
-filename = "C:\\Users\\noeba\\PycharmProjects\\MGA802_Project\\Projet_final\\Data\\truth.csv"  # Remplacez "nom_du_fichier.csv" par le nom réel de votre fichier
-output_filename = "C:\\Users\\noeba\\PycharmProjects\\MGA802_Project\\Projet_final\\Data\\truth_filtered.csv"
-conversion = ConversionTemps(filename)
-conversion.process_data(output_filename)
+# filename = "C:\\Users\\noeba\\PycharmProjects\\MGA802_Project\\Projet_final\\Data\\truth.csv"  # Remplacez "nom_du_fichier.csv" par le nom réel de votre fichier
+# output_filename = "C:\\Users\\noeba\\PycharmProjects\\MGA802_Project\\Projet_final\\Data\\truth_filtered.csv"
+# conversion = ConversionTemps(filename)
+# conversion.process_data(output_filename)

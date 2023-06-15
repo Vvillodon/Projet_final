@@ -1,1 +1,1 @@
-from affichage import *
+from .affichage import *
