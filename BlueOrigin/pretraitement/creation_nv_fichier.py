@@ -1,8 +1,7 @@
 import csv
 import math
-from Projet_final.globs import CSV_FILTERED_PATH_DEFAULT, FINAL_CSV_FILTERED_PATH_DEFAULT
-
-# from pyproj import CRS, Transformer
+from Projet_final.globs import (CSV_FILTERED_PATH_DEFAULT,
+                                FINAL_CSV_FILTERED_PATH_DEFAULT)
 
 
 class DataProcessor:
