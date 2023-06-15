@@ -6,7 +6,7 @@ from .plan_vol import PlanVol
 
 class PhysiqueVol(PlanVol):
     g = 9.81
-    isp = 260
+    isp = 315
     masse_vide_fusee = 20569 # kg
     masse_pleine_fusee = 75000 # kg
     diametre_fusee = 7 # m
@@ -14,7 +14,7 @@ class PhysiqueVol(PlanVol):
 
     def __init__(self,
                  masse_payload : int):
-        PlanVol.__init__(data)  # [[t, pos_x, pos_y, pos_z, vx, vy, vz, x_cart, y_cart, z_cart], [ti+1, ...],...]
+        PlanVol.__init__(self.data)  # [[t, pos_x, pos_y, pos_z, vx, vy, vz, x_cart, y_cart, z_cart], [ti+1, ...],...]
         self.masse_payload = masse_payload
         self.plan_vol = self.creer_plan_vol()
 
@@ -63,3 +63,4 @@ class PhysiqueVol(PlanVol):
 
     def calcul_centre_gravite(self):
         pass
+    
