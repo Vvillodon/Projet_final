@@ -1,5 +1,5 @@
 import csv
-
+from Projet_final.globs import CSV_FILTERED_PATH_DEFAULT, FINAL_CSV_FILTERED_PATH_DEFAULT
 
 class ConversionTemps:
     def __init__(self, filename):
@@ -80,7 +80,9 @@ class ConversionTemps:
 
 
 # Utilisation de la classe DataProcessor
-# filename = "C:\\Users\\noeba\\PycharmProjects\\MGA802_Project\\Projet_final\\Data\\truth.csv"  # Remplacez "nom_du_fichier.csv" par le nom réel de votre fichier
-# output_filename = "C:\\Users\\noeba\\PycharmProjects\\MGA802_Project\\Projet_final\\Data\\truth_filtered.csv"
-# conversion = ConversionTemps(filename)
-# conversion.process_data(output_filename)
+
+filename = CSV_FILTERED_PATH_DEFAULT
+output_filename = FINAL_CSV_FILTERED_PATH_DEFAULT
+
+conversion = ConversionTemps(filename)
+conversion.process_data(output_filename)

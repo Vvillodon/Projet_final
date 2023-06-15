@@ -1,7 +1,8 @@
 import csv
 import math
+from Projet_final.globs import CSV_FILTERED_PATH_DEFAULT, FINAL_CSV_FILTERED_PATH_DEFAULT
 
-from pyproj import CRS, Transformer
+# from pyproj import CRS, Transformer
 
 
 class DataProcessor:
@@ -99,8 +100,9 @@ class DataProcessor:
 
 
 # Utilisation de la classe DataProcessor
-filename = "C:\\Users\\noeba\\PycharmProjects\\MGA802_Project\\Projet_final\\Data\\truth_filtered.csv"
-output_filename = "C:\\Users\\noeba\\PycharmProjects\\MGA802_Project\\Projet_final\\Data\\new_truth_filtered.csv"
+
+filename = CSV_FILTERED_PATH_DEFAULT
+output_filename = FINAL_CSV_FILTERED_PATH_DEFAULT
 
 processor = DataProcessor(filename)
 processor.process_data(output_filename)
