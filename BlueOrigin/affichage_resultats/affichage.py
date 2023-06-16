@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 
 
 class Affichage:
-    def __init__(self, data, velocity=[], thrust=[]):
+    def __init__(self, data, velocity=None, thrust=None):
         """
         Initialise un objet Affichage avec les données fournies.
 
@@ -10,6 +10,10 @@ class Affichage:
         :param velocity: Liste des valeurs de vitesse.
         :param thrust: Liste des valeurs de poussée.
         """
+        if thrust is None:
+            thrust = []
+        if velocity is None:
+            velocity = []
         self.data = data
         self.time = [colonne[0] for colonne in self.data]  # Liste des valeurs de temps
         self.x_cartesian = [colonne[7] for colonne in self.data]  # Liste des valeurs de coordonnée X
