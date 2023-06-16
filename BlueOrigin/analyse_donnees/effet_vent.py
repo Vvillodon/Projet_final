@@ -9,9 +9,10 @@ class Effet_vent():
     diametre_fusee = 7 # m
     hauteur_fusee = 15 # m
     
-    def __init__(self):
-        pass
+    def __init__(self,profil_vent,):
+        self.profil_vent = profil_vent
+        
     def force_vent(self):
-        pass
+        
     def decalage(self):
         pass
