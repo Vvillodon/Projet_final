@@ -10,6 +10,8 @@ class Affichage:
         :param velocity: Liste des valeurs de vitesse.
         :param thrust: Liste des valeurs de poussée.
         """
+        self.canvas = None
+        self.ax = None
         if thrust is None:
             thrust = []
         if velocity is None:
@@ -34,15 +36,21 @@ class Affichage:
         ax.set_zlabel('Z')
         plt.show()
 
+    def plot_trajectory_interface(self, ax, canvas):
+        """
+        Affiche la trajectoire 3D de la fusée.
+        """
+        ax.plot(self.x_cartesian, self.y_cartesian, self.z_cartesian)
+        ax.plot3D(self.x_cartesian, self.y_cartesian, self.z_cartesian)
+        ax.set_xlabel('X')
+        ax.set_ylabel('Y')
+        ax.set_zlabel('Z')
+        canvas.draw()
+
     def affichage_plan_de_vol(self, plan_vol_final):
         """
         Affiche le plan de vol de la fusée.
         """
-        # Affichage des données
-        # for i in range(len(plan_vol_final['Event'])):
-        #     print(f"{plan_vol_final['Event'][i]:<18} {plan_vol_final['Elapsed Time(s)'][i]:<10} {plan_vol_final['Altitude (m)'][i]}")
-        #
-        # Détermination de la largeur maximale des colonnes
         max_width_event = max(len(event) for event in plan_vol_final['Event'])
         max_width_time = max(len(str(time)) for time in plan_vol_final['Elapsed Time(s)'])
         max_width_altitude = max(len(str(altitude)) for altitude in plan_vol_final['Altitude (m)'])

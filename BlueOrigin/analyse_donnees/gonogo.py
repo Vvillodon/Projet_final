@@ -31,6 +31,6 @@ class GoNoGo:
                 distance_to_centre = math.sqrt(
                     (self.x_cartesian[i] - self.x_centre) ** 2 + (self.y_cartesian[i] - self.y_centre) ** 2)
                 if distance_to_centre > self.circle_radius:
-                    return "NO GO"
+                    return False
                 else:
-                    return "GO"
+                    return True
