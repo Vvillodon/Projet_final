@@ -35,7 +35,6 @@ class FiltrageDonnees:
             writer.writeheader()
             writer.writerows(data)
 
-
     def convert_ecef_to_cartesian(self):
         """
         Convertit les positions du repère ECEF vers le repère LLA (Latitude, Longitude, Altitude).
@@ -97,7 +96,6 @@ class FiltrageDonnees:
         data_new = [[float(value) for value in row.values()] for row in self.data]
 
         return data_new
-
 
 # Utilisation de la classe DataProcessor
 
