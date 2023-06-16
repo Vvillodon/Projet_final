@@ -43,7 +43,7 @@ class PlanVol:
         tp_restart_ignition = 0
         tp_touchdown = 0
 
-        altitude_liftoff = self.data[1][9]
+        altitude_liftoff = self.z_cartesian[0]
         i = 2
 
         altitude_normee, vitesse_normee = self.calcul_valeurs_normees()
@@ -56,7 +56,7 @@ class PlanVol:
             deltaV = vitesse_normee[i] - vitesse_normee[i - 1]
             deltaV_before = vitesse_normee[i - 1] - vitesse_normee[i - 2]
 
-            if tp_liftoff == 0 and altitude - altitude_liftoff >= 1:
+            if tp_liftoff == 0 and altitude - altitude_liftoff >= 0:
                 tp_liftoff = self.time[i]
 
             elif tp_liftoff != 0 and tp_MECO == 0 and -9.81 < deltaV < -9.5:
