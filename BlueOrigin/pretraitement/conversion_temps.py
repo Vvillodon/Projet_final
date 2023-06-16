@@ -1,10 +1,12 @@
 import csv
 from globs import (CSV_PATH_DEFAULT, CSV_FILTERED_PATH_DEFAULT)
 
+
 class ConversionTemps:
-    def __init__(self, filename):
-        self.filename = filename
+    def __init__(self):
+        self.filename = CSV_PATH_DEFAULT
         self.data = self.read_csv_file()
+        self.output_filename = CSV_FILTERED_PATH_DEFAULT
 
     def read_csv_file(self):
         """
@@ -64,8 +66,7 @@ class ConversionTemps:
                 last_sampled_time = time
         self.data = filtered_data
 
-
-    def process_data(self, output_filename, sampling_rate=1):
+    def process_data(self, sampling_rate=1):
         """
         Effectue le traitement des données, y compris la conversion et le filtrage.
         Écrit les données traitées dans un nouveau fichier CSV.
@@ -77,13 +78,13 @@ class ConversionTemps:
         self.filter_data_by_sampling_rate(sampling_rate)
 
         fieldnames = self.data[0].keys()
-        self.write_csv_file(output_filename, self.data, fieldnames)
+        self.write_csv_file(self.output_filename, self.data, fieldnames)
 
 
 # Utilisation de la classe DataProcessor
 
-filename = CSV_PATH_DEFAULT
-output_filename = CSV_FILTERED_PATH_DEFAULT
+# filename = CSV_PATH_DEFAULT
+# output_filename = CSV_FILTERED_PATH_DEFAULT
 
-conversion = ConversionTemps(filename)
-conversion.process_data(output_filename)
+# conversion = ConversionTemps()
+# conversion.process_data()

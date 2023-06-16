@@ -4,8 +4,9 @@ from globs import (CSV_FILTERED_PATH_DEFAULT, FINAL_CSV_FILTERED_PATH_DEFAULT)
 
 
 class DataProcessor:
-    def __init__(self, filename):
-        self.filename = filename
+    def __init__(self):
+        self.filename = CSV_FILTERED_PATH_DEFAULT
+        self.output_filename = FINAL_CSV_FILTERED_PATH_DEFAULT
         self.data = self.read_csv_file()
 
     def read_csv_file(self):
@@ -79,7 +80,7 @@ class DataProcessor:
             filtered_data.append(filtered_row)
         self.data = filtered_data
 
-    def process_data(self, output_filename):
+    def process_data(self):
         """
         Effectue le traitement des données, y compris le filtrage, la conversion ECEF vers LLA et le renommage des colonnes.
         Écrit les données traitées dans un nouveau fichier CSV.
@@ -90,7 +91,7 @@ class DataProcessor:
         self.convert_ecef_to_cartesian()
 
         fieldnames = self.data[0].keys()
-        self.write_csv_file(output_filename, self.data, fieldnames)
+        self.write_csv_file(self.output_filename, self.data, fieldnames)
         data_new = []
         data_new = [[float(value) for value in row.values()] for row in self.data]
 
@@ -99,8 +100,8 @@ class DataProcessor:
 
 # Utilisation de la classe DataProcessor
 
-filename = CSV_FILTERED_PATH_DEFAULT
-output_filename = FINAL_CSV_FILTERED_PATH_DEFAULT
-
-processor = DataProcessor(filename)
-processor.process_data(output_filename)
+# filename = CSV_FILTERED_PATH_DEFAULT
+# output_filename = FINAL_CSV_FILTERED_PATH_DEFAULT
+#
+# processor = DataProcessor()
+# processor.process_data()
