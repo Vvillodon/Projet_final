@@ -35,8 +35,6 @@ class FiltrageDonnees:
             writer.writeheader()
             writer.writerows(data)
 
-    def calcul_norme_vitesse(self):
-        pass
 
     def convert_ecef_to_cartesian(self):
         """
