@@ -57,7 +57,7 @@ altitude=(np.linspace(100,10000,1000))
 
 #print(ProfilVent(altitude).calcul_vent( 10, 0.1))
 
-# pv = ProfilVent(altitude)
+
 
 # altitude=(np.linspace(100,10000,1000))
 
