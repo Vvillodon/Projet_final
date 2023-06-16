@@ -1,7 +1,7 @@
 import BlueOrigin
 
-processor = BlueOrigin.DataProcessor()
-data = processor.process_data()
+donnees_filtrees = BlueOrigin.FiltrageDonnees()
+data = donnees_filtrees.process_data()
 
 BlueOrigin.Affichage(data).plot_trajectory()
 

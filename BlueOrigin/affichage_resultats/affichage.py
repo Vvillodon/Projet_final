@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 
 
 class Affichage:
-    def __init__(self, data, velocity, thrust):
+    def __init__(self, data, velocity=[], thrust=[]):
         """
         Initialise un objet Affichage avec les données fournies.
 
