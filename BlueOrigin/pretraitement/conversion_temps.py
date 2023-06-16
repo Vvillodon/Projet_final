@@ -63,7 +63,7 @@ class ConversionTemps:
                 filtered_data.append(row)
                 last_sampled_time = time
         self.data = filtered_data
-        print(self.data)
+
 
     def process_data(self, output_filename, sampling_rate=1):
         """
