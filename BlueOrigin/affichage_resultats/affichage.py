@@ -34,11 +34,27 @@ class Affichage:
         ax.set_zlabel('Z')
         plt.show()
 
-    def affichage_plan_de_vol(self):
+    def affichage_plan_de_vol(self, plan_vol_final):
         """
         Affiche le plan de vol de la fusée.
         """
-        pass
+        # Affichage des données
+        # for i in range(len(plan_vol_final['Event'])):
+        #     print(f"{plan_vol_final['Event'][i]:<18} {plan_vol_final['Elapsed Time(s)'][i]:<10} {plan_vol_final['Altitude (m)'][i]}")
+        #
+        # Détermination de la largeur maximale des colonnes
+        max_width_event = max(len(event) for event in plan_vol_final['Event'])
+        max_width_time = max(len(str(time)) for time in plan_vol_final['Elapsed Time(s)'])
+        max_width_altitude = max(len(str(altitude)) for altitude in plan_vol_final['Altitude (m)'])
+
+        # Affichage des en-têtes centrés
+        print(
+            f"{'Event':^{max_width_event}} {'Elapsed Time(s)':^{max_width_time}} {'Altitude (m)':^{max_width_altitude}}")
+        print('-' * (max_width_event + max_width_time + max_width_altitude + 2))
+
+        # Affichage des données centrées
+        for event, time, altitude in zip(plan_vol_final['Event'], plan_vol_final['Elapsed Time(s)'], plan_vol_final['Altitude (m)']):
+            print(f"{event:^{max_width_event}} {str(time):^{max_width_time}} {str(altitude):^{max_width_altitude}}")
 
     def affichage_physique(self):
         """

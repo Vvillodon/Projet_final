@@ -42,6 +42,13 @@ class PlanVol:
         tp_deploy_brakes = 0
         tp_restart_ignition = 0
         tp_touchdown = 0
+        h_ignition = 0
+        h_liftoff = 0
+        h_MECO = 0
+        h_apogee = 0
+        h_deploy_brakes = 0
+        h_restart_ignition = 0
+        h_touchdown = 0
 
         altitude_liftoff = self.z_cartesian[0]
         i = 2
@@ -51,34 +58,36 @@ class PlanVol:
         while i <= len(self.time) - 1:
 
             altitude = self.z_cartesian[i]
-            altitude_before = self.z_cartesian[i-1]
+            altitude_before = self.z_cartesian[i - 1]
 
             deltaV = vitesse_normee[i] - vitesse_normee[i - 1]
             deltaV_before = vitesse_normee[i - 1] - vitesse_normee[i - 2]
 
             if tp_liftoff == 0 and altitude - altitude_liftoff >= 0:
                 tp_liftoff = self.time[i]
+                h_liftoff = altitude
 
             elif tp_liftoff != 0 and tp_MECO == 0 and -9.81 < deltaV < -9.5:
                 tp_MECO = self.time[i]
-
+                h_MECO = altitude
             elif tp_MECO != 0 and tp_apogee == 0 and altitude - altitude_before <= 0:
                 tp_apogee = self.time[i]
-
+                h_apogee = altitude
             elif tp_apogee != 0 and tp_deploy_brakes == 0 and deltaV - deltaV_before <= 0 and -20 < deltaV < 0 and altitude < 10000:
                 tp_deploy_brakes = self.time[i]
-
+                h_deploy_brakes = altitude
             elif tp_deploy_brakes != 0 and tp_restart_ignition == 0 and deltaV - deltaV_before > 0 and deltaV > 0:
                 tp_restart_ignition = self.time[i]
-
+                h_restart_ignition = altitude
             elif tp_restart_ignition != 0 and tp_touchdown == 0 and altitude - altitude_liftoff <= -12:
                 tp_touchdown = self.time[i]
-
+                h_touchdown = altitude
             i += 1
 
-        plan_vol_final = {'ignition': tp_ignition, 'liftof': tp_liftoff, 'MECO': tp_MECO, 'apogee': tp_apogee,
-                          'deploy_brake': tp_deploy_brakes, 'restart ignition': tp_restart_ignition,
-                          'touch down': tp_touchdown}
-        print(plan_vol_final)
+        plan_vol_final = {
+            'Event': ['Ignition', 'Liftoff', 'MECO', 'Apogee', 'Deploy brakes', 'Restart ignition', 'Touchdown'],
+            'Elapsed Time(s)': [tp_ignition, tp_liftoff, tp_MECO, tp_apogee, tp_deploy_brakes, tp_restart_ignition, tp_touchdown],
+            'Altitude (m)': [altitude_liftoff, h_liftoff, h_MECO, h_apogee, h_deploy_brakes, h_restart_ignition, h_touchdown]
+            }
 
         return plan_vol_final
