@@ -3,21 +3,22 @@ import csv
 import numpy as np
 import matplotlib.pyplot as plt
 
+
 class ProfilVent():
-    def __init__(self, altitude, vitesse_sol, rugosite):
+    def __init__(self, altitude, vitesse_sol, rugosite=0.1):
         self.altitude = altitude
         self.vitesse_sol = vitesse_sol
         self.rugosite = rugosite
-    
+
     def calcul_vent(self):
         """"""
         z0 = self.rugosite
-        
+
         V1 = self.vitesse_sol
         h_zero = self.altitude[0]
 
         # Création du profil de vent retournant une liste de vitesse de vent par altitudes renseignées
-        profil_vent = V1 * (np.log(altitude/z0)) / (np.log(h_zero/z0))
+        profil_vent = V1 * (np.log(np.divide(self.altitude, z0))) / (np.log(h_zero / z0))
 
         # Création du profil de la masse volumique retournant une liste de masse volumique par altitudes renseignées
         masse_volumique = []
@@ -28,20 +29,20 @@ class ProfilVent():
                 h = h - 50000
                 masse_volumique.append(0.0423 * 2.71828 ** (-0.0001 * h))  # Masse volumique de la mésosphère en kg/m^3
             elif h > 12000:
-                h = altitude - 12000
-                masse_volumique.append(0.025 * 2.71828 ** (-0.00015 * h))  # Masse volumique de la stratosphère en kg/m^3
+                h = h - 12000
+                masse_volumique.append(
+                    0.025 * 2.71828 ** (-0.00015 * h))  # Masse volumique de la stratosphère en kg/m^3
             else:
-                h = altitude
-                masse_volumique.append(1.225 * 2.71828 ** (-0.000125 * h))  # Masse volumique de la troposphère en kg/m^3
+                masse_volumique.append(
+                    1.225 * 2.71828 ** (-0.000125 * h))  # Masse volumique de la troposphère en kg/m^3
 
-        return profil_vent, masse_volumique[0]
-        
-    
-# altitude=(np.linspace(100,10000,1000))
-# profil_vent, masse_volumique=ProfilVent(altitude).calcul_vent( 10, 0.1)
-# print(masse_volumique[0]-masse_volumique[1])
+        return profil_vent, masse_volumique
 
 
+altitude = (np.linspace(100, 10000, 1000))
+profil_vent, masse_volumique = ProfilVent(altitude, 5).calcul_vent()
+
+print(type(altitude))
 
 # altitude=(np.linspace(100,100000,1000))
 #

@@ -1,8 +1,9 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
+
 class Affichage:
-    def __init__(self, data, velocity=None, thrust=None):
+    def __init__(self, data, velocity=None, thrust=None, effet_vent=None):
         """
         Initialise un objet Affichage avec les données fournies.
 
@@ -10,6 +11,7 @@ class Affichage:
         :param velocity: Liste des valeurs de vitesse.
         :param thrust: Liste des valeurs de poussée.
         """
+        self.effet_vent = effet_vent
         self.canvas = None
         self.ax = None
         if thrust is None:
@@ -41,7 +43,7 @@ class Affichage:
         """
         Affiche la trajectoire 3D de la fusée.
         """
-        ax.plot(self.x_cartesian, self.y_cartesian, self.z_cartesian)
+        ax.plot(self.x_cartesian, np.add(self.y_cartesian, self.effet_vent), self.z_cartesian)
         ax.set_xlabel('X')
         ax.set_ylabel('Y')
         ax.set_zlabel('Z')
@@ -61,7 +63,8 @@ class Affichage:
         print('-' * (max_width_event + max_width_time + max_width_altitude + 2))
 
         # Affichage des données centrées
-        for event, time, altitude in zip(plan_vol_final['Event'], plan_vol_final['Elapsed Time(s)'], plan_vol_final['Altitude (m)']):
+        for event, time, altitude in zip(plan_vol_final['Event'], plan_vol_final['Elapsed Time(s)'],
+                                         plan_vol_final['Altitude (m)']):
             print(f"{event:^{max_width_event}} {str(time):^{max_width_time}} {str(altitude):^{max_width_altitude}}")
 
     def affichage_physique(self):

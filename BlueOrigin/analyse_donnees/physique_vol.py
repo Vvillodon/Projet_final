@@ -4,7 +4,7 @@ from math import sqrt
 import numpy as np
 
 
-class PhysiqueVol():
+class PhysiqueVol:
     g = 9.81
     isp = 315
     masse_vide_fusee = 20569  # kg
