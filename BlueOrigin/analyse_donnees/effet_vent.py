@@ -24,12 +24,13 @@ class EffetVent:
         coeff_vent = np.array(coeff_vent)
         masse_volumique = np.array(self.masse_volumique)
         profil_vent = np.array(self.profil_vent)
-        force_vent = coeff_vent * masse_volumique * np.square(profil_vent)
+        force_vent =abs( coeff_vent * masse_volumique * np.square(profil_vent))
+        # print (force_vent)
         return force_vent
 
     def decalage(self):
         force_vent = self.force_vent()
-        decalage = force_vent * (EffetVent.g/ EffetVent.masse_pleine_fusee )
+        decalage = 0.5 *force_vent / EffetVent.masse_pleine_fusee 
         # time_td = self.creer_plan_vol().get('Temps écoulé (s)')[6]
         # indice_td = self.time.index(time_td)
         indice_td = 430
@@ -41,7 +42,7 @@ class EffetVent:
             somme = decalage_cumule[i - 1] + decalage[
                 i]  # Calculer la somme de l'élément précédent et de l'élément actuel
             decalage_cumule.append(somme)
-
+        # print(decalage_cumule)
         return decalage_cumule
 
 # altitude = (np.ones(1000))
