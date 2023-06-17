@@ -77,8 +77,3 @@ class Interface:
         Lance la boucle principale de l'interface utilisateur.
         """
         self.window.mainloop()
-
-# Crée une instance de la classe RocketLaunchGUI et lance l'interface
-# if __name__ == "__main__":
-#     gui = Interface()
-#     gui.run()

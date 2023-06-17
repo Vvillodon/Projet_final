@@ -1,5 +1,5 @@
 import matplotlib.pyplot as plt
-
+import numpy as np
 
 class Affichage:
     def __init__(self, data, velocity=None, thrust=None):
@@ -24,24 +24,24 @@ class Affichage:
         self.velocity = velocity  # Liste des valeurs de vitesse
         self.thrust = thrust  # Liste des valeurs de poussée
 
-    def plot_trajectory(self):
-        """
-        Affiche la trajectoire 3D de la fusée.
-        """
-        fig = plt.figure()
-        ax = fig.add_subplot(111, projection='3d')
-        ax.plot(self.x_cartesian, self.y_cartesian, self.z_cartesian)
-        ax.set_xlabel('X')
-        ax.set_ylabel('Y')
-        ax.set_zlabel('Z')
-        plt.show()
+    # plus utilisé
+    # def plot_trajectory(self):
+    #     """
+    #     Affiche la trajectoire 3D de la fusée.
+    #     """
+    #     fig = plt.figure()
+    #     ax = fig.add_subplot(111, projection='3d')
+    #     ax.plot(self.x_cartesian, self.y_cartesian, self.z_cartesian)
+    #     ax.set_xlabel('X')
+    #     ax.set_ylabel('Y')
+    #     ax.set_zlabel('Z')
+    #     plt.show()
 
     def plot_trajectory_interface(self, ax, canvas):
         """
         Affiche la trajectoire 3D de la fusée.
         """
         ax.plot(self.x_cartesian, self.y_cartesian, self.z_cartesian)
-        ax.plot3D(self.x_cartesian, self.y_cartesian, self.z_cartesian)
         ax.set_xlabel('X')
         ax.set_ylabel('Y')
         ax.set_zlabel('Z')

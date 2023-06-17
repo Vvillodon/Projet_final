@@ -4,38 +4,23 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 class ProfilVent():
-    def __init__(self, altitude):
+    def __init__(self, altitude, vitesse_sol, rugosite):
         self.altitude = altitude
+        self.vitesse_sol = vitesse_sol
+        self.rugosite = rugosite
     
-    def calcul_vent(self ,vitesse_sol, rugosite):
-        """
+    def calcul_vent(self):
+        """"""
+        z0 = self.rugosite
         
-
-        Parameters
-        ----------
-        vitesse_sol : TYPE
-            DESCRIPTION.
-        rugosite : TYPE
-            DESCRIPTION.
-
-        Returns
-        -------
-        profil_vent : TYPE
-            DESCRIPTION.
-        TYPE
-            DESCRIPTION.
-
-        """
-        z0 = rugosite
-        
-        V1 = vitesse_sol
+        V1 = self.vitesse_sol
         h_zero = self.altitude[0]
 
-        result = {}
-        profil_vent=V1 * (np.log(altitude/z0)) / (np.log(h_zero/z0))
-        
+        # Création du profil de vent retournant une liste de vitesse de vent par altitudes renseignées
+        profil_vent = V1 * (np.log(altitude/z0)) / (np.log(h_zero/z0))
+
+        # Création du profil de la masse volumique retournant une liste de masse volumique par altitudes renseignées
         masse_volumique = []
-    
         for h in self.altitude:
             if h > 85000:
                 masse_volumique.append(0.0)  # Masse volumique de la thermosphère en kg/m^3
@@ -49,23 +34,22 @@ class ProfilVent():
                 h = altitude
                 masse_volumique.append(1.225 * 2.71828 ** (-0.000125 * h))  # Masse volumique de la troposphère en kg/m^3
 
-            
-        return profil_vent, masse_volumique[1]
+        return profil_vent, masse_volumique[0]
         
     
-altitude=(np.linspace(100,10000,1000))
-
-#print(ProfilVent(altitude).calcul_vent( 10, 0.1))
-
-
-
 # altitude=(np.linspace(100,10000,1000))
+# profil_vent, masse_volumique=ProfilVent(altitude).calcul_vent( 10, 0.1)
+# print(masse_volumique[0]-masse_volumique[1])
 
+
+
+# altitude=(np.linspace(100,100000,1000))
+#
 # vitesse_sol = 10  # Vitesse du vent au niveau du sol
 # rugosite = 0.1  # Rugosité
-
-# profil_vent, masse_volumique = ProfilVent(altitude).calcul_vent(vitesse_sol, rugosite)
-
+#
+# profil_vent, masse_volumique = ProfilVent(altitude, vitesse_sol, rugosite).calcul_vent()
+#
 # # Tracer le profil de vent
 # plt.figure(figsize=(8, 6))
 # plt.plot(profil_vent, altitude)
@@ -74,7 +58,7 @@ altitude=(np.linspace(100,10000,1000))
 # plt.title("Profil de vent")
 # plt.grid(True)
 # plt.show()
-
+#
 # # Tracer la masse volumique
 # plt.figure(figsize=(8, 6))
 # print(altitude)
@@ -85,6 +69,6 @@ altitude=(np.linspace(100,10000,1000))
 # plt.title("Profil de masse volumique")
 # plt.grid(True)
 # plt.show()
-
-# print(ProfilVent(altitude).calcul_vent( 10, 0.1))
-
+#
+# print(ProfilVent(altitude, vitesse_sol, rugosite).calcul_vent())
+#
