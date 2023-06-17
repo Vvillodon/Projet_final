@@ -29,7 +29,7 @@ class EffetVent:
 
     def decalage(self):
         force_vent = self.force_vent()
-        decalage = force_vent * (EffetVent.masse_pleine_fusee / EffetVent.g)
+        decalage = force_vent * (EffetVent.g/ EffetVent.masse_pleine_fusee )
         # time_td = self.creer_plan_vol().get('Temps écoulé (s)')[6]
         # indice_td = self.time.index(time_td)
         indice_td = 430
