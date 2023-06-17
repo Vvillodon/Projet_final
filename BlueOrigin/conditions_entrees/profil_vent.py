@@ -39,10 +39,10 @@ class ProfilVent():
         return profil_vent, masse_volumique
 
 
-altitude = (np.linspace(100, 10000, 1000))
-profil_vent, masse_volumique = ProfilVent(altitude, 5).calcul_vent()
-
-print(type(altitude))
+# altitude = (np.linspace(100, 10000, 1000))
+# profil_vent, masse_volumique = ProfilVent(altitude, 5).calcul_vent()
+#
+# print(type(altitude))
 
 # altitude=(np.linspace(100,100000,1000))
 #

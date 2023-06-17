@@ -32,16 +32,15 @@ class EffetVent:
         decalage = force_vent * (EffetVent.masse_pleine_fusee / EffetVent.g)
         # time_td = self.creer_plan_vol().get('Temps écoulé (s)')[6]
         # indice_td = self.time.index(time_td)
-        indice_td=430
-        for i in range (indice_td,len(decalage)):
-            decalage[i]=0
+        indice_td = 430
+        for i in range(indice_td, len(decalage)):
+            decalage[i] = 0
         decalage_cumule = [decalage[0]]  # Initialiser le tableau résultant avec le premier élément de l'entrée
 
-        
         for i in range(1, len(decalage)):
-            somme = decalage_cumule[i - 1] + decalage[i]  # Calculer la somme de l'élément précédent et de l'élément actuel
+            somme = decalage_cumule[i - 1] + decalage[
+                i]  # Calculer la somme de l'élément précédent et de l'élément actuel
             decalage_cumule.append(somme)
-     
 
         return decalage_cumule
 

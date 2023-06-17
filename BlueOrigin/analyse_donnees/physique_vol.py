@@ -15,7 +15,7 @@ class PhysiqueVol:
     def __init__(self,
                  masse_payload: int,
                  data: list,
-                 effet_vent : list = None):
+                 effet_vent: list = None):
         self.masse_payload = masse_payload
         self.data = data
         self.effet_vent = effet_vent
@@ -28,7 +28,6 @@ class PhysiqueVol:
         self.x_cartesian = [colonne[7] for colonne in self.data]
         self.y_cartesian = [colonne[8] for colonne in self.data]
         self.z_cartesian = [colonne[9] for colonne in self.data]
-
 
     def calcul_valeurs_normees(self):
         """
@@ -67,7 +66,7 @@ class PhysiqueVol:
         h_touchdown = 0
 
         altitude_liftoff = self.z_cartesian[0]
-        index = 2 # Initialisation de l'index pour parcourir les listes des coordonnées
+        index = 2  # Initialisation de l'index pour parcourir les listes des coordonnées
 
         altitude_normee, vitesse_normee = self.calcul_valeurs_normees()
 
@@ -106,7 +105,7 @@ class PhysiqueVol:
                                  tp_touchdown],
             'Altitude (m)': [altitude_liftoff, h_liftoff, h_MECO, h_apogee, h_deploy_brakes, h_restart_ignition,
                              h_touchdown]
-            }
+        }
 
         return plan_vol_final
 
@@ -119,16 +118,15 @@ class PhysiqueVol:
         indice_MECO = self.time.index(t_MECO)
         deltaV_ecef_meco = self.calcul_valeurs_normees()[0]
 
-        return (deltaV_ecef_meco, t_MECO)
+        return deltaV_ecef_meco, t_MECO
 
-    def calcul_debit_massique():
-        deltaV_ecef_meco = self.deltaV_burnout()[0]
-        debit_massique = self.masse_pleine_fusee * (1 - np.exp(-(deltaV_ecef_meco / (g * isp)))) / t_MECO
+    def calcul_debit_massique(self):
+        deltaV_ecef_meco, t_MECO = self.deltaV_burnout()[0]
+        debit_massique = self.masse_pleine_fusee * (1 - np.exp(-(deltaV_ecef_meco / (PhysiqueVol.g * PhysiqueVol.isp)))) / t_MECO
         return debit_massique
 
     def calcul_poussee(self):
         debit_massique = self.calcul_debit_massique()
-        pousee = isp * g * debit_massique
+        poussee = PhysiqueVol.isp * PhysiqueVol.g * debit_massique
 
         return poussee
-

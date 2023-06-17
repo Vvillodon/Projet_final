@@ -1,9 +1,10 @@
 import numpy as np
 from .physique_vol import PhysiqueVol
 
+
 class PlanVol(PhysiqueVol):
 
-    def __init__(self, masse_payload : int, data: list):
+    def __init__(self, masse_payload: int, data: list):
         super().__init__(masse_payload, data)
 
         self.time = [colonne[0] for colonne in self.data]
@@ -21,18 +22,13 @@ class PlanVol(PhysiqueVol):
     #      z_cart pour chaque instant t.
     #     L'origine du repère cartésiens se trouve au pas de tir du lancement de la fusée.
     #
-    #     :return: liste_valeurs_normees : liste de listes contenant chaque temps d'échantillonage et altitude et vitesse
-    #     normées respectives [[to, ho, vo], [t1, h1, v1],...]
-    #     """
-    #     altitude_normee = []
-    #     vitesse_normee = []
-    #     for i in range(len(self.x_cartesian)):
-    #         altitude_normee.append(
-    #             np.sqrt(self.x_cartesian[i] ** 2 + self.y_cartesian[i] ** 2 + self.z_cartesian[i] ** 2))
-    #         vitesse_normee.append(np.sqrt(self.vx_ecef[i] ** 2 + self.vy_ecef[i] ** 2 + self.vz_ecef[i] ** 2))
+    # :return: liste_valeurs_normees : liste de listes contenant chaque temps d'échantillonage et altitude et vitesse
+    # normées respectives [[to, ho, vo], [t1, h1, v1],...] """ altitude_normee = [] vitesse_normee = [] for i in
+    # range(len(self.x_cartesian)): altitude_normee.append( np.sqrt(self.x_cartesian[i] ** 2 + self.y_cartesian[i] **
+    # 2 + self.z_cartesian[i] ** 2)) vitesse_normee.append(np.sqrt(self.vx_ecef[i] ** 2 + self.vy_ecef[i] ** 2 +
+    # self.vz_ecef[i] ** 2))
     #
     #     return altitude_normee, vitesse_normee
-
 
     def creer_plan_vol(self):
 
@@ -52,7 +48,7 @@ class PlanVol(PhysiqueVol):
         h_touchdown = 0
 
         altitude_liftoff = self.z_cartesian[0]
-        index = 2 # Initialisation de l'index pour parcourir les listes des coordonnées
+        index = 2  # Initialisation de l'index pour parcourir les listes des coordonnées
 
         altitude_normee, vitesse_normee = self.calcul_valeurs_normees()
 
@@ -87,9 +83,11 @@ class PlanVol(PhysiqueVol):
 
         plan_vol_final = {
             'Phase': ['Ignition', 'Liftoff', 'MECO', 'Apogee', 'Deploy brakes', 'Restart ignition', 'Touchdown'],
-            'Temps écoulé (s)': [tp_ignition, tp_liftoff, tp_MECO, tp_apogee, tp_deploy_brakes, tp_restart_ignition, tp_touchdown],
-            'Altitude (m)': [altitude_liftoff, h_liftoff, h_MECO, h_apogee, h_deploy_brakes, h_restart_ignition, h_touchdown]
-            }
+            'Temps écoulé (s)': [tp_ignition, tp_liftoff, tp_MECO, tp_apogee, tp_deploy_brakes, tp_restart_ignition,
+                                 tp_touchdown],
+            'Altitude (m)': [altitude_liftoff, h_liftoff, h_MECO, h_apogee, h_deploy_brakes, h_restart_ignition,
+                             h_touchdown]
+        }
 
         return plan_vol_final
 
@@ -101,7 +99,7 @@ class PlanVol(PhysiqueVol):
         t_MECO = self.creer_plan_vol().get('Temps écoulé (s)')[2]
         indice_MECO = self.time.index(t_MECO)
         deltaV_ecef_meco = self.calcul_valeurs_normees()[0]
-            # np.sqrt(
-            # self.vx_ecef[indice_MECO] ** 2 + self.vy_ecef[indice_MECO] ** 2 + self.vz_ecef[indice_MECO] ** 2)
+        # np.sqrt(
+        # self.vx_ecef[indice_MECO] ** 2 + self.vy_ecef[indice_MECO] ** 2 + self.vz_ecef[indice_MECO] ** 2)
 
-        return (deltaV_ecef_meco, t_MECO)
+        return deltaV_ecef_meco, t_MECO

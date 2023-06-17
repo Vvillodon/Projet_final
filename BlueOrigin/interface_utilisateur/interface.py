@@ -60,10 +60,6 @@ class Interface:
         wind_speed = float(self.wind_speed_entry.get())
         payload_mass = float(self.payload_entry.get())
 
-        # Faire quelque chose avec les valeurs saisies
-        # par exemple, appeler une fonction de votre programme principal
-        # qui utilise les valeurs pour prendre une décision de lancement
-
         # Affiche le résultat dans la fenêtre
         if BlueOrigin.GoNoGo(self.data).go_nogo():
             self.result_label.config(text="Décollage autorisé !")

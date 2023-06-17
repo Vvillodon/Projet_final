@@ -47,6 +47,9 @@ class Affichage:
         ax.set_xlabel('X')
         ax.set_ylabel('Y')
         ax.set_zlabel('Z')
+        ax.set_title('Trajectoire 3D de la fusée')
+        print(np.add(self.y_cartesian, self.effet_vent))
+
         canvas.draw()
 
     def affichage_plan_de_vol(self, plan_vol_final):
