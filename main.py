@@ -28,20 +28,18 @@ def launch_rocket():
     wind_speed = float(wind_speed_entry.get())
     payload_mass = int(payload_entry.get())
 
-    # Faire quelque chose avec les valeurs saisies
-    # par exemple, appeler une fonction de votre programme principal
-    # qui utilise les valeurs pour prendre une décision de lancement
-
     # Affiche le résultat dans la fenêtre
-    if BlueOrigin.GoNoGo(data).go_nogo():
-        result_label.config(text="Décollage autorisé !")
-    else:
-        result_label.config(text="Décollage non autorisé !")
+
     altitude = BlueOrigin.PhysiqueVol(payload_mass, data).z_cartesian
     profil_vent, masse_volumique = BlueOrigin.ProfilVent(altitude, wind_speed).calcul_vent()
     vitesse_vent = BlueOrigin.EffetVent(profil_vent, masse_volumique).decalage()
     BlueOrigin.Affichage(data, effet_vent=vitesse_vent).plot_trajectory_interface(ax, canvas)
-
+    x = BlueOrigin.Affichage(data, effet_vent=vitesse_vent).x_cartesian
+    y = np.add(BlueOrigin.Affichage(data, effet_vent=vitesse_vent).y_cartesian, vitesse_vent)
+    if BlueOrigin.GoNoGo(data , x, y, altitude).go_nogo():
+        result_label.config(text="Décollage autorisé !")
+    else:
+        result_label.config(text="Décollage non autorisé !")
 
 def run():
     """

@@ -2,7 +2,7 @@ import math
 
 
 class GoNoGo:
-    def __init__(self, data):
+    def __init__(self, data, x_cartesian, y_cartesian, z_cartesian):
         """
         Initialise un objet GoNoGo avec les données fournies.
 
@@ -10,9 +10,9 @@ class GoNoGo:
         """
         self.data = data
         self.time = [colonne[0] for colonne in self.data]
-        self.altitude = [colonne[9] for colonne in self.data]
-        self.x_cartesian = [colonne[7] for colonne in self.data]
-        self.y_cartesian = [colonne[8] for colonne in self.data]
+        self.altitude = z_cartesian
+        self.x_cartesian = x_cartesian
+        self.y_cartesian = y_cartesian
         self.time_limit = 400  # Limite de temps pour le GO/NO GO
         self.altitude_limit = 6184  # Altitude limite pour le GO/NO GO
         self.circle_radius = 100  # Rayon du cercle limite pour le GO/NO GO
