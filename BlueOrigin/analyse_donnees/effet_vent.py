@@ -24,7 +24,7 @@ class EffetVent:
         coeff_vent = np.array(coeff_vent)
         masse_volumique = np.array(self.masse_volumique)
         profil_vent = np.array(self.profil_vent)
-        force_vent =abs( coeff_vent * masse_volumique * np.square(profil_vent))
+        force_vent =coeff_vent * masse_volumique * np.square(profil_vent)
         # print (force_vent)
         return force_vent
 
