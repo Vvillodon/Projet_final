@@ -31,7 +31,7 @@ def launch_rocket():
  
     # Affiche le résultat dans la fenêtre
     
-    masse = BlueOrigin.PhysiqueVol(payload_mass,data).calcul_masse()
+    masse = BlueOrigin.PhysiqueVol(payload_mass, data).calcul_masse()
     altitude = BlueOrigin.PhysiqueVol(payload_mass, data).z_cartesian
     profil_vent, masse_volumique = BlueOrigin.ProfilVent(altitude, wind_speed).calcul_vent()
     vitesse_vent = BlueOrigin.EffetVent(profil_vent, masse_volumique, masse).decalage()

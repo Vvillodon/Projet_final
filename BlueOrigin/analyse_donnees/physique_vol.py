@@ -117,12 +117,12 @@ class PhysiqueVol:
         """
         t_MECO = self.creer_plan_vol().get('Temps écoulé (s)')[2]
         indice_MECO = self.time.index(t_MECO)
-        deltaV_ecef_meco = self.calcul_valeurs_normees()[0]
+        deltaV_ecef_meco = self.calcul_valeurs_normees()[1][indice_MECO]
 
         return deltaV_ecef_meco, t_MECO
 
     def calcul_debit_massique(self):
-        deltaV_ecef_meco, t_MECO = self.deltaV_burnout()[0]
+        deltaV_ecef_meco, t_MECO = self.deltaV_burnout()
         debit_massique = self.masse_pleine_fusee * (1 - np.exp(-(deltaV_ecef_meco / (PhysiqueVol.g * PhysiqueVol.isp)))) / t_MECO
         return debit_massique
 
