@@ -16,6 +16,7 @@ class PhysiqueVol:
                  masse_payload: int,
                  data: list,
                  effet_vent: list = None):
+
         self.masse_payload = masse_payload
         self.data = data
         self.effet_vent = effet_vent
@@ -130,3 +131,20 @@ class PhysiqueVol:
         poussee = PhysiqueVol.isp * PhysiqueVol.g * debit_massique
 
         return poussee
+
+    def calcul_masse(self):
+        """
+
+        :return:
+        """
+        liste_masse = []
+        debit_fuel = self.calcul_debit_massique()
+        deltaV, t_MECO = self.deltaV_burnout()
+        for t in self.time:
+            if t <= t_MECO :
+                masse_totale = PhysiqueVol.masse_pleine_fusee + self.masse_payload -  t*debit_fuel
+                liste_masse.append(masse_totale)
+            else:
+                liste_masse.append(PhysiqueVol.masse_pleine_fusee + self.masse_payload - t_MECO*debit_fuel)
+
+        return liste_masse
