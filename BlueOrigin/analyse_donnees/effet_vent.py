@@ -10,9 +10,10 @@ class EffetVent:
     surface_projetee = hauteur_fusee * diametre_fusee
     coefficient_trainee = 1.17
 
-    def __init__(self, profil_vent, masse_volumique):
+    def __init__(self, profil_vent, masse_volumique, masse):
         self.profil_vent = profil_vent
         self.masse_volumique = masse_volumique
+        self.masse = masse
 
     def force_vent(self):
         """
@@ -30,7 +31,7 @@ class EffetVent:
 
     def decalage(self):
         force_vent = self.force_vent()
-        decalage = 0.5 *force_vent / EffetVent.masse_pleine_fusee 
+        decalage = np.divide(0.5 *force_vent,self.masse)
         # time_td = self.creer_plan_vol().get('Temps écoulé (s)')[6]
         # indice_td = self.time.index(time_td)
         indice_td = 430

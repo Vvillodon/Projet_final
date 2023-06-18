@@ -23,20 +23,22 @@ import BlueOrigin
 
 def launch_rocket():
     """
-    Fonction appelée lors du clic sur le bouton de lancement.
+    Fonction appelée lors du clic sur le bouton de lancement. 
     Récupère les valeurs saisies et effectue une action en conséquence.
     """
-    wind_speed = float(wind_speed_entry.get())
+    wind_speed = float(wind_speed_entry.get()) 
     payload_mass = int(payload_entry.get())
-
+ 
     # Affiche le résultat dans la fenêtre
-
+    
+    masse = BlueOrigin.PhysiqueVol(payload_mass,data).calcul_masse()
     altitude = BlueOrigin.PhysiqueVol(payload_mass, data).z_cartesian
     profil_vent, masse_volumique = BlueOrigin.ProfilVent(altitude, wind_speed).calcul_vent()
-    vitesse_vent = BlueOrigin.EffetVent(profil_vent, masse_volumique).decalage()
+    vitesse_vent = BlueOrigin.EffetVent(profil_vent, masse_volumique, masse).decalage()
     BlueOrigin.Affichage(data, effet_vent=vitesse_vent).plot_trajectory_interface(ax, canvas)
     x = BlueOrigin.Affichage(data, effet_vent=vitesse_vent).x_cartesian
     y = np.add(BlueOrigin.Affichage(data, effet_vent=vitesse_vent).y_cartesian, vitesse_vent)
+    
     if BlueOrigin.GoNoGo(data , x, y, altitude).go_nogo():
         result_label.config(text="Décollage autorisé !")
     else:
