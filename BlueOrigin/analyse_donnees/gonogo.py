@@ -2,7 +2,7 @@ import math
 
 
 class GoNoGo:
-    def __init__(self, data, x_cartesian, y_cartesian, z_cartesian,rayon_gonogo):
+    def __init__(self, data, x_cartesian, y_cartesian, z_cartesian, rayon_gonogo):
         """
         Initialise un objet GoNoGo avec les données fournies.
 

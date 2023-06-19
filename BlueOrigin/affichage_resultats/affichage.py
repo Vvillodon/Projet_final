@@ -3,7 +3,7 @@ import numpy as np
 
 
 class Affichage:
-    def __init__(self, data,rayon_gonogo, velocity=None, thrust=None, effet_vent=None):
+    def __init__(self, data, rayon_gonogo, velocity=None, thrust=None, effet_vent=None):
         """
         Initialise un objet Affichage avec les données fournies.
 
@@ -25,7 +25,7 @@ class Affichage:
         self.z_cartesian = [colonne[9] for colonne in self.data]  # Liste des valeurs de coordonnée Z
         self.velocity = velocity  # Liste des valeurs de vitesse
         self.thrust = thrust  # Liste des valeurs de poussée
-        self.rayon_gonogo=rayon_gonogo
+        self.rayon_gonogo = rayon_gonogo
 
     # plus utilisé
     # def plot_trajectory(self):
@@ -49,18 +49,18 @@ class Affichage:
         ax.set_ylabel('Y')
         ax.set_zlabel('Z')
         ax.set_title('Trajectoire 3D de la fusée')
-        
+
         # Ajouter un cercle de gonogo
         theta = np.linspace(0, 2 * np.pi, 100)
         x_circle = -3206 + rayon_gonogo * np.cos(theta)
         y_circle = 627 + rayon_gonogo * np.sin(theta)
         z_circle = np.zeros_like(theta)  # Assumer une hauteur zéro pour le cercle
-        
+
         ax.plot(x_circle, y_circle, z_circle, 'r--', label='Gonogo Circle')
         ax.legend()
-    
+
         print(np.add(self.y_cartesian, self.effet_vent))
-    
+
         canvas.draw()
 
     def affichage_plan_de_vol(self, plan_vol_final):
