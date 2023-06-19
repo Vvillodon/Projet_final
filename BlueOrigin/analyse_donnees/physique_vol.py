@@ -13,8 +13,8 @@ class PhysiqueVol:
     hauteur_fusee = 15  # m
 
     def __init__(self,
-                 masse_payload: int,
-                 data: list,
+                 masse_payload: int = None,
+                 data: list = None,
                  effet_vent: list = None):
 
         self.masse_payload = masse_payload

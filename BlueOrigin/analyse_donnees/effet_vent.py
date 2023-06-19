@@ -26,7 +26,6 @@ class EffetVent:
         masse_volumique = np.array(self.masse_volumique)
         profil_vent = np.array(self.profil_vent)
         force_vent =coeff_vent * masse_volumique * np.square(profil_vent)
-        # print (force_vent)
         return force_vent
 
     def decalage(self):
@@ -43,7 +42,6 @@ class EffetVent:
             somme = decalage_cumule[i - 1] + decalage[
                 i]  # Calculer la somme de l'élément précédent et de l'élément actuel
             decalage_cumule.append(somme)
-        # print(decalage_cumule)
         return decalage_cumule
 
 # altitude = (np.ones(1000))
