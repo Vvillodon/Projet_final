@@ -44,23 +44,30 @@ class Affichage:
         """
         Affiche la trajectoire 3D de la fusée avec un cercle de gonogo.
         """
+        max_range =1000+ max(max(self.x_cartesian), max(self.y_cartesian), abs(min(self.x_cartesian)), abs(min(self.y_cartesian)))
+        # Trouver la valeur maximale entre x et y
+        ax.set_xlim([-max_range, max_range])  # Définir les limites de l'axe x avec la valeur maximale
+        ax.set_ylim([-max_range, max_range])  # Définir les limites de l'axe y avec la valeur maximale
+       
+        
+        
         ax.plot(self.x_cartesian, np.add(self.y_cartesian, self.effet_vent), self.z_cartesian)
         ax.set_xlabel('X')
         ax.set_ylabel('Y')
         ax.set_zlabel('Z')
         ax.set_title('Trajectoire 3D de la fusée')
-
+        
         # Ajouter un cercle de gonogo
         theta = np.linspace(0, 2 * np.pi, 100)
         x_circle = -3206 + rayon_gonogo * np.cos(theta)
-        y_circle = 627 + rayon_gonogo * np.sin(theta)
-        z_circle = np.zeros_like(theta)  # Assumer une hauteur zéro pour le cercle
-
+        y_circle = -627 + rayon_gonogo * np.sin(theta)
+        z_circle = np.full_like(theta, 6000)  # Altitude du cercle
+        
         ax.plot(x_circle, y_circle, z_circle, 'r--', label='Gonogo Circle')
-        ax.legend()
-
+        # ax.legend()
+    
         print(np.add(self.y_cartesian, self.effet_vent))
-
+    
         canvas.draw()
 
     def affichage_plan_de_vol(self, plan_vol_final):
