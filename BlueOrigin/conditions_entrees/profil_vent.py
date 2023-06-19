@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 
 class ProfilVent():
-    def __init__(self, altitude, vitesse_sol, rugosite=0.1):
+    def __init__(self, altitude, vitesse_sol, rugosite=4):
         self.altitude = altitude
         self.vitesse_sol = vitesse_sol
         self.rugosite = rugosite

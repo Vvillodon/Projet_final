@@ -31,10 +31,11 @@ class EffetVent:
 
     def decalage(self):
         force_vent = self.force_vent()
+        self.masse=np.array(self.masse)
         decalage = np.divide(0.5 *force_vent,self.masse)
         # time_td = self.creer_plan_vol().get('Temps écoulé (s)')[6]
         # indice_td = self.time.index(time_td)
-        indice_td = 430
+        indice_td = 419
         for i in range(indice_td, len(decalage)):
             decalage[i] = 0
         decalage_cumule = [decalage[0]]  # Initialiser le tableau résultant avec le premier élément de l'entrée
