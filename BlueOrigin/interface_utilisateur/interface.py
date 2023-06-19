@@ -34,6 +34,11 @@ class Interface:
         payload_label.pack()
         self.payload_entry = tk.Entry(self.window)
         self.payload_entry.pack()
+        
+        Rayon_gonogo_label = tk.Label(self.window, text="Rayon Go/NoGo:")
+        Rayon_gonogo_label.pack()
+        self.Rayon_gonogo_entry = tk.Entry(self.window)
+        self.Rayon_gonogo_entry.pack()
 
         # Crée le bouton de lancement
         launch_button = tk.Button(self.window, text="Lancer la fusée", command=self.launch_rocket)
