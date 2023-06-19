@@ -27,66 +27,50 @@ class Affichage:
         self.thrust = thrust  # Liste des valeurs de poussée
         self.rayon_gonogo = rayon_gonogo
 
-    # plus utilisé
-    # def plot_trajectory(self):
-    #     """
-    #     Affiche la trajectoire 3D de la fusée.
-    #     """
-    #     fig = plt.figure()
-    #     ax = fig.add_subplot(111, projection='3d')
-    #     ax.plot(self.x_cartesian, self.y_cartesian, self.z_cartesian)
-    #     ax.set_xlabel('X')
-    #     ax.set_ylabel('Y')
-    #     ax.set_zlabel('Z')
-    #     plt.show()
-
     def plot_trajectory_interface(self, ax, canvas, rayon_gonogo):
         """
         Affiche la trajectoire 3D de la fusée avec un cercle de gonogo.
         """
-        max_range =1000+ max(max(self.x_cartesian), max(self.y_cartesian), abs(min(self.x_cartesian)), abs(min(self.y_cartesian)))
+        max_range = 1000 + max(max(self.x_cartesian), max(self.y_cartesian), abs(min(self.x_cartesian)),
+                               abs(min(self.y_cartesian)))
         # Trouver la valeur maximale entre x et y
-        ax.set_xlim([-max_range, max_range])  # Définir les limites de l'axe x avec la valeur maximale
-        ax.set_ylim([-max_range, max_range])  # Définir les limites de l'axe y avec la valeur maximale
-       
-        
-        
+        ax.set_xlim([-max_range, 1000])  # Définir les limites de l'axe x avec la valeur maximale
+        ax.set_ylim([-2000, 2000])  # Définir les limites de l'axe y avec la valeur maximale
+
         ax.plot(self.x_cartesian, np.add(self.y_cartesian, self.effet_vent), self.z_cartesian)
         ax.set_xlabel('X')
         ax.set_ylabel('Y')
         ax.set_zlabel('Z')
         ax.set_title('Trajectoire 3D de la fusée')
-        
+
         # Ajouter un cercle de gonogo
         theta = np.linspace(0, 2 * np.pi, 100)
         x_circle = -3206 + rayon_gonogo * np.cos(theta)
         y_circle = -627 + rayon_gonogo * np.sin(theta)
         z_circle = np.full_like(theta, 6000)  # Altitude du cercle
-        
+
         ax.plot(x_circle, y_circle, z_circle, 'r--', label='Gonogo Circle')
         # ax.legend()
-    
-        print(np.add(self.y_cartesian, self.effet_vent))
-    
+
         canvas.draw()
 
     def affichage_plan_de_vol(self, plan_vol_final):
         """
         Affiche le plan de vol de la fusée.
         """
-        max_width_event = max(len(event) for event in plan_vol_final['Event'])
-        max_width_time = max(len(str(time)) for time in plan_vol_final['Elapsed Time(s)'])
+        max_width_event = max(len(event) for event in plan_vol_final['Phase'])
+        max_width_time = max(len(str(time)) for time in plan_vol_final['Temps écoulé (s)'])
         max_width_altitude = max(len(str(altitude)) for altitude in plan_vol_final['Altitude (m)'])
 
         # Affichage des en-têtes centrés
         print(
-            f"{'Event':^{max_width_event}} {'Elapsed Time(s)':^{max_width_time}} {'Altitude (m)':^{max_width_altitude}}")
+            f"{'Phase':^{max_width_event}} {'Temps écoulé (s)':^{max_width_time}} {'Altitude (m)':^{max_width_altitude}}")
         print('-' * (max_width_event + max_width_time + max_width_altitude + 2))
 
         # Affichage des données centrées
-        for event, time, altitude in zip(plan_vol_final['Event'], plan_vol_final['Elapsed Time(s)'],
+        for event, time, altitude in zip(plan_vol_final['Phase'], plan_vol_final['Temps écoulé (s)'],
                                          plan_vol_final['Altitude (m)']):
-            print(f"{event:^{max_width_event}} {str(time):^{max_width_time}} {str(altitude):^{max_width_altitude}}")
+            print(f"{event:^{max_width_event}} {int(time):^{max_width_time}} {int(altitude):^{max_width_altitude}}")
 
     def affichage_physique(self):
         """

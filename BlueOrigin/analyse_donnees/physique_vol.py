@@ -123,7 +123,8 @@ class PhysiqueVol:
 
     def calcul_debit_massique(self):
         deltaV_ecef_meco, t_MECO = self.deltaV_burnout()
-        debit_massique = self.masse_pleine_fusee * (1 - np.exp(-(deltaV_ecef_meco / (PhysiqueVol.g * PhysiqueVol.isp)))) / t_MECO
+        debit_massique = self.masse_pleine_fusee * (
+                    1 - np.exp(-(deltaV_ecef_meco / (PhysiqueVol.g * PhysiqueVol.isp)))) / t_MECO
         return debit_massique
 
     def calcul_poussee(self):
@@ -141,10 +142,10 @@ class PhysiqueVol:
         debit_fuel = self.calcul_debit_massique()
         deltaV, t_MECO = self.deltaV_burnout()
         for t in self.time:
-            if t <= t_MECO :
-                masse_totale = PhysiqueVol.masse_pleine_fusee + self.masse_payload -  t*debit_fuel
+            if t <= t_MECO:
+                masse_totale = PhysiqueVol.masse_pleine_fusee + self.masse_payload - t * debit_fuel
                 liste_masse.append(masse_totale)
             else:
-                liste_masse.append(PhysiqueVol.masse_pleine_fusee + self.masse_payload - t_MECO*debit_fuel)
+                liste_masse.append(PhysiqueVol.masse_pleine_fusee + self.masse_payload - t_MECO * debit_fuel)
 
         return liste_masse

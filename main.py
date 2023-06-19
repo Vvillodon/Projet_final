@@ -6,7 +6,6 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 
 import BlueOrigin
 
-
 # effet_vent = BlueOrigin.EffetVent()
 
 # donnees_filtrees = BlueOrigin.FiltrageDonnees()
@@ -40,10 +39,12 @@ def launch_rocket():
 
     if BlueOrigin.GoNoGo(data, x, y, altitude, rayon).go_nogo():
         result_label.config(text="Décollage autorisé !")
-        
+
     else:
         result_label.config(text="Décollage non autorisé !")
-        
+
+    plandevol = BlueOrigin.PhysiqueVol(data=data).creer_plan_vol()
+    BlueOrigin.Affichage(data, rayon, effet_vent=vitesse_vent).affichage_plan_de_vol(plandevol)
 
 
 def run():
@@ -56,7 +57,7 @@ def run():
 donnees_filtrees = BlueOrigin.FiltrageDonnees()
 data = donnees_filtrees.process_data()
 plandevol = BlueOrigin.PhysiqueVol(data=data).creer_plan_vol()
-print(plandevol)
+# BlueOrigin.Affichage(data).(plandevol)
 
 window = tk.Tk()
 window.title("Programme de lancement de fusée")
@@ -99,5 +100,3 @@ canvas.draw()
 canvas.get_tk_widget().pack()
 
 run()
-
-
