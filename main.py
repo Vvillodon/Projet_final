@@ -29,9 +29,7 @@ def launch_rocket():
     wind_speed = float(wind_speed_entry.get())
     payload_mass = int(payload_entry.get())
     rayon = float(rayon_gonogo_entry.get())
-
     # Affiche le résultat dans la fenêtre
-
     masse = BlueOrigin.PhysiqueVol(payload_mass, data).calcul_masse()
     altitude = BlueOrigin.PhysiqueVol(payload_mass, data).z_cartesian
     profil_vent, masse_volumique = BlueOrigin.ProfilVent(altitude, wind_speed).calcul_vent()
@@ -39,10 +37,13 @@ def launch_rocket():
     BlueOrigin.Affichage(data, rayon, effet_vent=vitesse_vent).plot_trajectory_interface(ax, canvas, rayon)
     x = BlueOrigin.Affichage(data, rayon, effet_vent=vitesse_vent).x_cartesian
     y = np.add(BlueOrigin.Affichage(data, rayon_gonogo=rayon, effet_vent=vitesse_vent).y_cartesian, vitesse_vent)
+
     if BlueOrigin.GoNoGo(data, x, y, altitude, rayon).go_nogo():
         result_label.config(text="Décollage autorisé !")
+        
     else:
         result_label.config(text="Décollage non autorisé !")
+        
 
 
 def run():
@@ -73,7 +74,7 @@ payload_label.pack()
 payload_entry = tk.Entry(window)
 payload_entry.pack()
 
-rayon_gonogo_label = tk.Label(window, text="Rayon Go/NoGo:")
+rayon_gonogo_label = tk.Label(window, text="Rayon Go/NoGo (m):")
 rayon_gonogo_label.pack()
 rayon_gonogo_entry = tk.Entry(window)
 rayon_gonogo_entry.pack()
