@@ -168,3 +168,5 @@ class PhysiqueVol:
 
         return liste_masse
 
+    def calcul_distance(self):
+        return sqrt((self.x_cartesian[0]-self.x_cartesian[-1])**2+(self.y_cartesian[0]-self.y_cartesian[-1])**2)

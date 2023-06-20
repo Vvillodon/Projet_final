@@ -45,7 +45,8 @@ def launch_rocket():
 
     # Création du plan de vol de la fusée
     plandevol = BlueOrigin.PhysiqueVol(data=data).creer_plan_vol()
-
+    distance_atterrissage=BlueOrigin.PhysiqueVol(data=data).calcul_distance()
+    distance_label.config(text=("Distance entre le pas de tir et la zone d'atterrissage : "+str(int(distance_atterrissage)) + " m"))
     # Affichage du plan de vol dans l'interface utilisateur
     BlueOrigin.Affichage(data, rayon, effet_vent=vitesse_vent).affichage_plan_de_vol(plandevol)
 
@@ -92,6 +93,10 @@ launch_button.pack()
 # Crée le widget Label pour afficher le résultat du lancement
 result_label = tk.Label(window, text="")
 result_label.pack()
+
+# Crée le widget Label pour afficher la distance entre le pas de tir et la zone d'attérrissage
+distance_label = tk.Label(window, text="")
+distance_label.pack()
 
 # Affiche la fenêtre 3D de la trajectoire de la fusée
 canvas = FigureCanvasTkAgg(fig, master=window)
