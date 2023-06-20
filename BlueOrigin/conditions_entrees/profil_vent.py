@@ -41,17 +41,12 @@ class ProfilVent:
                 masse_volumique.append(0.0423 * 2.71828 ** (-0.0001 * h))  # Masse volumique de la mésosphère en kg/m^3
             elif h > 12000:
                 h = h - 12000
-                masse_volumique.append(0.025 * 2.71828 ** (-0.00015 * h))  # Masse volumique de la stratosphère en kg/m^3
+                masse_volumique.append(
+                    0.025 * 2.71828 ** (-0.00015 * h))  # Masse volumique de la stratosphère en kg/m^3
             else:
-                masse_volumique.append(1.225 * 2.71828 ** (-0.000125 * h))  # Masse volumique de la troposphère en kg/m^3
+                masse_volumique.append(
+                    1.225 * 2.71828 ** (-0.000125 * h))  # Masse volumique de la troposphère en kg/m^3
 
-        plt.figure(figsize=(8, 6))
-        plt.plot(profil_vent, self.altitude)
-        plt.xlabel("Vitesse du vent (m/s)")
-        plt.ylabel("Altitude (m)")
-        plt.title("Profil de vent")
-        plt.grid(True)
-        plt.show()
         return profil_vent, masse_volumique
 
 
