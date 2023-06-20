@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Introduction &mdash; Documentation Blue Origin : Demo of Deorbit, Descent, and Landing Sensors 0.1</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="_static/fonts.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Recherche" href="search.html" />
+    <link rel="next" title="BlueOrigin" href="BlueOrigin.html" />
+    <link rel="prev" title="Projet final - Blue Origin" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Blue Origin : Demo of Deorbit, Descent, and Landing Sensors
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Rechercher docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="BlueOrigin.html">BlueOrigin</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Blue Origin : Demo of Deorbit, Descent, and Landing Sensors</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Introduction</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/introduction.rst.txt" rel="nofollow"> Afficher la source de la page</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Lien permanent vers ce titre"></a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="BlueOrigin.html">BlueOrigin</a></li>
+</ul>
+</div>
+<p><strong>Lumache</strong> (/lu’make/) is a Python library for cooks and food lovers that
+creates recipes mixing random ingredients.  It pulls data from the <a class="reference external" href="https://world.openfoodfacts.org/">Open Food
+Facts database</a> and offers a <em>simple</em> and
+<em>intuitive</em> API.</p>
+<p>En se basant sur les données récupérées d’un vol suborbital de la fusée Blue Origin, notre programme repose sur
+l’analyse et la modification des valeurs enregistrées décrivant la désorbitation, la descente et l’atterrissage du
+véhicule. Notre objectif principal est ici, de créer un programme d’aide à la décision sur le décollage ou non de la
+fusée (GO/NO GO) en fonction des conditions météorologique (profile de vent) et de la masse de la charge utile
+(touristes). En effet, en tant que compagnie de tourisme spatial, la sécurité du vol est primordial.
+Ainsi, notre programme simulera chaque vol en prenant compte du vent et validera le lancement si la trajectoire de la
+fusée à chaque instant t n’est pas trop déviée. Sinon, elle reverra un message et interdira le décollage. En dehors du
+GO/NO GO, le programme renverra également les données calculées et des graphiques de représentations des trajectoires,
+et surtout le nouveau plan de vol (altitude et temps de chaque phase clés du vol).</p>
+<p>Notre étude de vol se concentre surtout sur les phases influencées par la vitesse des vents, à savoir :
+− Démarrage moteur
+− Décollage
+− Extinction du moteur principal
+− Apogée
+Les phases postérieures ne seront pas modifiées par les vitesses du vent, car celles-ci seront contrôlées par
+asservissement pour assurer le retour au sol. L’objectif du GO/NO GO est de savoir si lors du déploiement des aérofreins (début du contrôle de la redescente), le lanceur est capable de revenir au pas de tir. Les valeurs des phases définies ci-après, seront tout de même affichée et représentées graphiquement pour la trajectoire :
+− Déploiement des aérofreins
+− Redémarrage moteur
+− Atterrissage</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pied de page">
+        <a href="index.html" class="btn btn-neutral float-left" title="Projet final - Blue Origin" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Précédent</a>
+        <a href="BlueOrigin.html" class="btn btn-neutral float-right" title="BlueOrigin" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023.</p>
+  </div>
+
+  Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a>
+    fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

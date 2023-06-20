@@ -6,9 +6,9 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'Blue Origin'
-copyright = '2023, Alice'
-author = 'Alice'
+project = 'Blue Origin : Demo of Deorbit, Descent, and Landing Sensors'
+copyright = '2023'
+author = 'Alice Farina, Noé Bazetoux, Victor Sourd De Villodon'
 release = '0.1'
 
 # -- General configuration ---------------------------------------------------
@@ -25,7 +25,8 @@ language = 'fr'
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
 # html_theme = 'sphinx_rtd_theme'
-html_theme = 'renku'
+# html_theme = 'renku'
+html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
 
 # sphinx-build -b html docs/source/ docs/build/html
