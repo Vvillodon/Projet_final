@@ -7,6 +7,10 @@ class GoNoGo:
         Initialise un objet GoNoGo avec les données fournies.
 
         :param data: Les données de la trajectoire de la fusée.
+        :param x_cartesian: Liste des valeurs de coordonnée X.
+        :param y_cartesian: Liste des valeurs de coordonnée Y.
+        :param z_cartesian: Liste des valeurs de coordonnée Z.
+        :param rayon_gonogo: Rayon du cercle limite pour le GO/NO GO.
         """
         self.data = data
         self.time = [colonne[0] for colonne in self.data]
@@ -21,9 +25,9 @@ class GoNoGo:
 
     def go_nogo(self):
         """
-        Vérifie si le GO/NO GO est atteint lors du déploiement des aérofreins.
+        Vérifie si la fusée peut atterrir au bon endroit lors du déploiement des aérofreins.
 
-        :return: "GO" si le GO est atteint, "NO GO" sinon.
+        :return: "True si le GO est atteint, False sinon.
         """
         for i in range(len(self.time)):
             if self.altitude_limit - 1000 < self.altitude[i] < self.altitude_limit + 1000 and self.time[

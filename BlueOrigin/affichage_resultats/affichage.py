@@ -1,7 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-
 class Affichage:
     def __init__(self, data, rayon_gonogo, velocity=None, thrust=None, effet_vent=None):
         """
@@ -11,6 +10,7 @@ class Affichage:
         :param velocity: Liste des valeurs de vitesse.
         :param thrust: Liste des valeurs de poussée.
         """
+        self.plan_vol_final = None
         self.effet_vent = effet_vent
         self.canvas = None
         self.ax = None

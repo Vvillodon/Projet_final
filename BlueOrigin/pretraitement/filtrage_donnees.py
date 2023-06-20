@@ -13,7 +13,8 @@ class FiltrageDonnees:
         """
         Lit un fichier CSV et retourne les données sous forme de liste de dictionnaires.
 
-        :return: Les données du fichier CSV sous forme de liste de dictionnaires.
+        :return: Une liste de dictionnaires contenant les données du fichier CSV.
+        :rtype: list[dict]
         """
         data = []
         with open(self.filename, "r") as csvfile:
@@ -27,8 +28,11 @@ class FiltrageDonnees:
         Écrit les données dans un fichier CSV.
 
         :param filename: Le nom du fichier CSV de sortie.
+        :type filename: str
         :param data: Les données à écrire dans le fichier CSV.
+        :type data: list[dict]
         :param fieldnames: Les noms de colonnes du fichier CSV.
+        :type fieldnames: list[str]
         """
         with open(filename, "w", newline="") as csvfile:
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
@@ -65,6 +69,7 @@ class FiltrageDonnees:
         Filtre les colonnes et les renomme dans les données.
 
         :return: Les données avec les colonnes filtrées et renommées.
+        :rtype: list[dict]
         """
         filtered_data = []
         for row in self.data:
@@ -82,25 +87,17 @@ class FiltrageDonnees:
 
     def process_data(self):
         """
-        Effectue le traitement des données, y compris le filtrage, la conversion ECEF vers LLA et le renommage des colonnes.
-        Écrit les données traitées dans un nouveau fichier CSV.
+        Effectue le traitement des données, y compris le filtrage, la conversion ECEF vers LLA
+        et le renommage des colonnes. Écrit les données traitées dans un nouveau fichier CSV.
 
-        :param output_filename: Le nom du fichier CSV de sortie.
+        :return: Les données traitées.
+        :rtype: list[list[float]]
         """
         self.filter_and_rename_columns()
         self.convert_ecef_to_cartesian()
 
         fieldnames = self.data[0].keys()
         self.write_csv_file(self.output_filename, self.data, fieldnames)
-        data_new = []
+
         data_new = [[float(value) for value in row.values()] for row in self.data]
-
         return data_new
-
-# Utilisation de la classe DataProcessor
-
-# filename = CSV_FILTERED_PATH_DEFAULT
-# output_filename = FINAL_CSV_FILTERED_PATH_DEFAULT
-#
-# processor = DataProcessor()
-# processor.process_data()

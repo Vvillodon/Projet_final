@@ -42,11 +42,11 @@ class ConversionTemps:
         :return: Les données avec les valeurs de temps converties en secondes et filtrées.
         """
         converted_data = []
-        reference_time = 1.60259621021e+18 / 1000000000  # Nouveau temps de référence
+        reference_time = 1602596210.21  # Nouveau temps de référence en secondes
         for row in self.data:
             time = float(row["TIME_NANOSECONDS_TAI "])
             if time >= 1.60259621021e+18:
-                row["TIME_NANOSECONDS_TAI "] = (float(row["TIME_NANOSECONDS_TAI "]) / 1000000000) - reference_time
+                row["TIME_NANOSECONDS_TAI "] = (time / 1000000000) - reference_time
                 converted_data.append(row)
         self.data = converted_data
 
@@ -71,20 +71,10 @@ class ConversionTemps:
         Effectue le traitement des données, y compris la conversion et le filtrage.
         Écrit les données traitées dans un nouveau fichier CSV.
 
-        :param output_filename: Le nom du fichier CSV de sortie.
-        :param sampling_rate: Le taux d'échantillonnage en secondes.
+        :param sampling_rate: Le taux d'échantillonnage en secondes pour le filtrage des données. Par défaut, la valeur est 1.
         """
         self.convert_nanoseconds_to_seconds()
         self.filter_data_by_sampling_rate(sampling_rate)
 
         fieldnames = self.data[0].keys()
         self.write_csv_file(self.output_filename, self.data, fieldnames)
-
-
-# Utilisation de la classe DataProcessor
-
-# filename = CSV_PATH_DEFAULT
-# output_filename = CSV_FILTERED_PATH_DEFAULT
-
-# conversion = ConversionTemps()
-# conversion.process_data()

@@ -3,8 +3,13 @@ from .physique_vol import PhysiqueVol
 
 
 class PlanVol(PhysiqueVol):
-
     def __init__(self, masse_payload: int, data: list):
+        """
+        Initialise un objet PlanVol avec les données fournies.
+
+        :param masse_payload: La masse du payload de la fusée.
+        :param data: Les données de la trajectoire de la fusée.
+        """
         super().__init__(masse_payload, data)
 
         self.time = [colonne[0] for colonne in self.data]
@@ -16,22 +21,12 @@ class PlanVol(PhysiqueVol):
         self.y_cartesian = [colonne[8] for colonne in self.data]
         self.z_cartesian = [colonne[9] for colonne in self.data]
 
-    # def calcul_valeurs_normees(self):
-    #     """
-    #     Calcule la norme des vitesses vx, vy, vz et la norme des altitudes en coordonées cartésiennes x_cart, y_cart,
-    #      z_cart pour chaque instant t.
-    #     L'origine du repère cartésiens se trouve au pas de tir du lancement de la fusée.
-    #
-    # :return: liste_valeurs_normees : liste de listes contenant chaque temps d'échantillonage et altitude et vitesse
-    # normées respectives [[to, ho, vo], [t1, h1, v1],...] """ altitude_normee = [] vitesse_normee = [] for i in
-    # range(len(self.x_cartesian)): altitude_normee.append( np.sqrt(self.x_cartesian[i] ** 2 + self.y_cartesian[i] **
-    # 2 + self.z_cartesian[i] ** 2)) vitesse_normee.append(np.sqrt(self.vx_ecef[i] ** 2 + self.vy_ecef[i] ** 2 +
-    # self.vz_ecef[i] ** 2))
-    #
-    #     return altitude_normee, vitesse_normee
-
     def creer_plan_vol(self):
+        """
+        Crée le plan de vol de la fusée en identifiant les différentes phases du vol.
 
+        :return: Un dictionnaire contenant les phases, le temps écoulé et l'altitude correspondante.
+        """
         tp_ignition = 0
         tp_liftoff = 0
         tp_MECO = 0
@@ -53,7 +48,6 @@ class PlanVol(PhysiqueVol):
         altitude_normee, vitesse_normee = self.calcul_valeurs_normees()
 
         while index <= len(self.time) - 1:
-
             altitude = self.z_cartesian[index]
             altitude_before = self.z_cartesian[index - 1]
 
@@ -63,7 +57,6 @@ class PlanVol(PhysiqueVol):
             if tp_liftoff == 0 and altitude - altitude_liftoff >= 0:
                 tp_liftoff = self.time[index]
                 h_liftoff = altitude
-
             elif tp_liftoff != 0 and tp_MECO == 0 and -9.81 < deltaV < -9.5:
                 tp_MECO = self.time[index]
                 h_MECO = altitude
@@ -93,13 +86,13 @@ class PlanVol(PhysiqueVol):
 
     def deltaV_burnout(self):
         """
+        Calcule le deltaV au moment du burnout (MECO).
 
-        :return:
+        :return: La valeur du deltaV au burnout et le temps écoulé jusqu'au burnout.
         """
         t_MECO = self.creer_plan_vol().get('Temps écoulé (s)')[2]
         indice_MECO = self.time.index(t_MECO)
         deltaV_ecef_meco = self.calcul_valeurs_normees()[0]
-        # np.sqrt(
-        # self.vx_ecef[indice_MECO] ** 2 + self.vy_ecef[indice_MECO] ** 2 + self.vz_ecef[indice_MECO] ** 2)
+        # np.sqrt(self.vx_ecef[indice_MECO] ** 2 + self.vy_ecef[indice_MECO] ** 2 + self.vz_ecef[indice_MECO] ** 2)
 
         return deltaV_ecef_meco, t_MECO
