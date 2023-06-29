@@ -94,7 +94,7 @@ launch_button.pack()
 result_label = tk.Label(window, text="")
 result_label.pack()
 
-# Crée le widget Label pour afficher la distance entre le pas de tir et la zone d'attérrissage
+# Crée le widget Label pour afficher la distance entre le pas de tir et la zone d'atterrissage
 distance_label = tk.Label(window, text="")
 distance_label.pack()
 
