@@ -2,6 +2,7 @@ import math
 import csv
 import numpy as np
 import matplotlib.pyplot as plt
+from globs import CSV_PATH_PROFIL_VENT
 
 
 class ProfilVent:
@@ -16,6 +17,7 @@ class ProfilVent:
         self.altitude = altitude
         self.vitesse_sol = vitesse_sol
         self.rugosite = rugosite
+        self.output_filename = CSV_PATH_PROFIL_VENT
 
     def calcul_vent(self):
         """
@@ -52,34 +54,21 @@ class ProfilVent:
         plt.title("Profil de vent")
         plt.grid(True)
         plt.show()
+        
+        
+        data = zip(self.altitude, profil_vent, masse_volumique)
+        
+        fieldnames=['Altitude (m)', 'Vitesse du vent (m/s)', 'Masse volumique (kg/m^3)']
+        
+        ProfilVent.write_csv_file(self, self.output_filename, data, fieldnames)
+        
         return profil_vent, masse_volumique
 
+    def write_csv_file(self, filename, data, fieldnames):
+        
+        with open(filename, "w", newline="") as csvfile:
+            writer = csv.writer(csvfile)
+            writer.writerow(fieldnames)
+            writer.writerows(data)
+        
 
-# Exemple d'utilisation de la classe ProfilVent
-# altitude = np.linspace(100, 10000, 1000)
-# profil_vent, masse_volumique = ProfilVent(altitude, 5).calcul_vent()
-# print(profil_vent)
-
-# altitude = np.linspace(100, 100000, 1000)
-# vitesse_sol = 10  # Vitesse du vent au niveau du sol
-# rugosite = 0.1  # Rugosité
-#
-# profil_vent, masse_volumique = ProfilVent(altitude, vitesse_sol, rugosite).calcul_vent()
-#
-# # Tracer le profil de vent
-# plt.figure(figsize=(8, 6))
-# plt.plot(profil_vent, altitude)
-# plt.xlabel("Vitesse du vent (m/s)")
-# plt.ylabel("Altitude (m)")
-# plt.title("Profil de vent")
-# plt.grid(True)
-# plt.show()
-#
-# # Tracer la masse volumique
-# plt.figure(figsize=(8, 6))
-# plt.plot(masse_volumique, altitude)
-# plt.xlabel("Masse volumique (kg/m^3)")
-# plt.ylabel("Altitude (m)")
-# plt.title("Profil de masse volumique")
-# plt.grid(True)
-# plt.show()

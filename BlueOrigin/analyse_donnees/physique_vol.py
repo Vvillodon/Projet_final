@@ -9,6 +9,7 @@ class PhysiqueVol:
     isp = 315  # Impulsion spécifique du moteur (s)
     masse_vide_fusee = 20569  # Masse à vide de la fusée (kg)
     masse_pleine_fusee = 75000  # Masse totale de la fusée avec le carburant (kg)
+    masse_capsule_vide=1500
     diametre_fusee = 7  # Diamètre de la fusée (m)
     hauteur_fusee = 15  # Hauteur de la fusée (m)
 
@@ -165,6 +166,13 @@ class PhysiqueVol:
             else:
                 liste_masse.append(PhysiqueVol.masse_pleine_fusee + self.masse_payload - t_MECO * debit_fuel)
                 # Calcule la masse totale de la fusée à chaque instant après MECO
+        
+        t_apogee = self.creer_plan_vol().get('Temps écoulé (s)')[3]  # Obtient le temps de MECO à partir du plan de vol
+        indice_apogee = self.time.index(t_apogee)
+        
+        for i in range (indice_apogee,len(liste_masse)):
+            liste_masse[i]=liste_masse[i]-(self.masse_payload + PhysiqueVol.masse_capsule_vide)
+        return liste_masse
 
         return liste_masse
 
