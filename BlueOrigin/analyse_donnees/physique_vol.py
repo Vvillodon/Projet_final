@@ -167,4 +167,3 @@ class PhysiqueVol:
                 # Calcule la masse totale de la fusée à chaque instant après MECO
 
         return liste_masse
-

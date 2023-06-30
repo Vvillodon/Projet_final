@@ -1,10 +1,12 @@
 BlueOrigin - Mission New Shepard
 ================================
 
-.. image:: _static/blueorigin_logo.png
 
 **BlueOrigin**
 __________________
+.. image:: _static/blueorigin_logo.png
+    :align: center
+
 Blue Origin est une entreprise aérospatiale axée sur l'exploration et la colonisation de l'espace. Son programme phare,
 New Shepard, vise à offrir des voyages suborbitaux pour le tourisme spatial et la recherche scientifique. Grâce à un
 puissant moteur réutilisable, le véhicule spatial propulse la capsule vers l'espace, offrant aux passagers une
@@ -14,6 +16,7 @@ personnes vivront et travailleront dans l'espace, préservant ainsi notre planè
 **New Shepard**
 _________________
 .. image:: _static/new_shepard.png
+    :align: center
 
 Principaux objectifs :
     - Premier lanceur réutilisable de Blue Origin pour les vols suborbitaux
