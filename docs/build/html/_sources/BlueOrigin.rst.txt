@@ -1,7 +1,0 @@
-BlueOrigin
-==========
-
-blabla
-
-.. image::/_static/new_shepard.png
-

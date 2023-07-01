@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BlueOrigin.pretraitement package &mdash; Documentation Blue Origin : Demo of Deorbit, Descent, and Landing Sensors 0.1</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Recherche" href="search.html" />
+    <link rel="next" title="globs module" href="globs.html" />
+    <link rel="prev" title="BlueOrigin.interface_utilisateur package" href="BlueOrigin.interface_utilisateur.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Blue Origin : Demo of Deorbit, Descent, and Landing Sensors
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Rechercher docs" aria-label="Rechercher docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">Projet_final</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="BlueOrigin.html">BlueOrigin package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="BlueOrigin.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="BlueOrigin.affichage_resultats.html">BlueOrigin.affichage_resultats package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BlueOrigin.analyse_donnees.html">BlueOrigin.analyse_donnees package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BlueOrigin.conditions_entrees.html">BlueOrigin.conditions_entrees package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BlueOrigin.interface_utilisateur.html">BlueOrigin.interface_utilisateur package</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">BlueOrigin.pretraitement package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="BlueOrigin.html#module-BlueOrigin">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="globs.html">globs module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main.html">main module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contexte.html">Contexte</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programme_python.html">Programmme python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="verification_validation.html">Verification et Validition</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Blue Origin : Demo of Deorbit, Descent, and Landing Sensors</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">Projet_final</a></li>
+          <li class="breadcrumb-item"><a href="BlueOrigin.html">BlueOrigin package</a></li>
+      <li class="breadcrumb-item active">BlueOrigin.pretraitement package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/BlueOrigin.pretraitement.rst.txt" rel="nofollow"> Afficher la source de la page</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="blueorigin-pretraitement-package">
+<h1>BlueOrigin.pretraitement package<a class="headerlink" href="#blueorigin-pretraitement-package" title="Lien permanent vers cette rubrique"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Lien permanent vers cette rubrique"></a></h2>
+</section>
+<section id="module-BlueOrigin.pretraitement.conversion_temps">
+<span id="blueorigin-pretraitement-conversion-temps-module"></span><h2>BlueOrigin.pretraitement.conversion_temps module<a class="headerlink" href="#module-BlueOrigin.pretraitement.conversion_temps" title="Lien permanent vers cette rubrique"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="BlueOrigin.pretraitement.conversion_temps.ConversionTemps">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">BlueOrigin.pretraitement.conversion_temps.</span></span><span class="sig-name descname"><span class="pre">ConversionTemps</span></span><a class="headerlink" href="#BlueOrigin.pretraitement.conversion_temps.ConversionTemps" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Bases : <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="BlueOrigin.pretraitement.conversion_temps.ConversionTemps.convert_nanoseconds_to_seconds">
+<span class="sig-name descname"><span class="pre">convert_nanoseconds_to_seconds</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#BlueOrigin.pretraitement.conversion_temps.ConversionTemps.convert_nanoseconds_to_seconds" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Convertit les valeurs de temps de nanosecondes en secondes dans les données.
+Supprime les données avant le temps 1602596210210000000.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Renvoie<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Les données avec les valeurs de temps converties en secondes et filtrées.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="BlueOrigin.pretraitement.conversion_temps.ConversionTemps.filter_data_by_sampling_rate">
+<span class="sig-name descname"><span class="pre">filter_data_by_sampling_rate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sampling_rate</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BlueOrigin.pretraitement.conversion_temps.ConversionTemps.filter_data_by_sampling_rate" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Filtre les données en fonction du taux d’échantillonnage.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>sampling_rate</strong> – Le taux d’échantillonnage en secondes.</p>
+</dd>
+<dt class="field-even">Renvoie<span class="colon">:</span></dt>
+<dd class="field-even"><p>Les données filtrées.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="BlueOrigin.pretraitement.conversion_temps.ConversionTemps.process_data">
+<span class="sig-name descname"><span class="pre">process_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sampling_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BlueOrigin.pretraitement.conversion_temps.ConversionTemps.process_data" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Effectue le traitement des données, y compris la conversion et le filtrage.
+Écrit les données traitées dans un nouveau fichier CSV.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>sampling_rate</strong> – Le taux d’échantillonnage en secondes pour le filtrage des données. Par défaut, la valeur est 1.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="BlueOrigin.pretraitement.conversion_temps.ConversionTemps.read_csv_file">
+<span class="sig-name descname"><span class="pre">read_csv_file</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#BlueOrigin.pretraitement.conversion_temps.ConversionTemps.read_csv_file" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Lit un fichier CSV et retourne les données sous forme de liste de dictionnaires.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Renvoie<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Les données du fichier CSV sous forme de liste de dictionnaires.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="BlueOrigin.pretraitement.conversion_temps.ConversionTemps.write_csv_file">
+<span class="sig-name descname"><span class="pre">write_csv_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fieldnames</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BlueOrigin.pretraitement.conversion_temps.ConversionTemps.write_csv_file" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Écrit les données dans un fichier CSV.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filename</strong> – Le nom du fichier CSV de sortie.</p></li>
+<li><p><strong>data</strong> – Les données à écrire dans le fichier CSV.</p></li>
+<li><p><strong>fieldnames</strong> – Les noms de colonnes du fichier CSV.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-BlueOrigin.pretraitement.filtrage_donnees">
+<span id="blueorigin-pretraitement-filtrage-donnees-module"></span><h2>BlueOrigin.pretraitement.filtrage_donnees module<a class="headerlink" href="#module-BlueOrigin.pretraitement.filtrage_donnees" title="Lien permanent vers cette rubrique"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="BlueOrigin.pretraitement.filtrage_donnees.FiltrageDonnees">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">BlueOrigin.pretraitement.filtrage_donnees.</span></span><span class="sig-name descname"><span class="pre">FiltrageDonnees</span></span><a class="headerlink" href="#BlueOrigin.pretraitement.filtrage_donnees.FiltrageDonnees" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Bases : <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="BlueOrigin.pretraitement.filtrage_donnees.FiltrageDonnees.convert_ecef_to_cartesian">
+<span class="sig-name descname"><span class="pre">convert_ecef_to_cartesian</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#BlueOrigin.pretraitement.filtrage_donnees.FiltrageDonnees.convert_ecef_to_cartesian" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Convertit les positions du repère ECEF vers le repère LLA (Latitude, Longitude, Altitude).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="BlueOrigin.pretraitement.filtrage_donnees.FiltrageDonnees.filter_and_rename_columns">
+<span class="sig-name descname"><span class="pre">filter_and_rename_columns</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#BlueOrigin.pretraitement.filtrage_donnees.FiltrageDonnees.filter_and_rename_columns" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Filtre les colonnes et les renomme dans les données.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Renvoie<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Les données avec les colonnes filtrées et renommées.</p>
+</dd>
+<dt class="field-even">Type renvoyé<span class="colon">:</span></dt>
+<dd class="field-even"><p>list[dict]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="BlueOrigin.pretraitement.filtrage_donnees.FiltrageDonnees.process_data">
+<span class="sig-name descname"><span class="pre">process_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#BlueOrigin.pretraitement.filtrage_donnees.FiltrageDonnees.process_data" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Effectue le traitement des données, y compris le filtrage, la conversion ECEF vers LLA
+et le renommage des colonnes. Écrit les données traitées dans un nouveau fichier CSV.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Renvoie<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Les données traitées.</p>
+</dd>
+<dt class="field-even">Type renvoyé<span class="colon">:</span></dt>
+<dd class="field-even"><p>list[list[float]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="BlueOrigin.pretraitement.filtrage_donnees.FiltrageDonnees.read_csv_file">
+<span class="sig-name descname"><span class="pre">read_csv_file</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#BlueOrigin.pretraitement.filtrage_donnees.FiltrageDonnees.read_csv_file" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Lit un fichier CSV et retourne les données sous forme de liste de dictionnaires.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Renvoie<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Une liste de dictionnaires contenant les données du fichier CSV.</p>
+</dd>
+<dt class="field-even">Type renvoyé<span class="colon">:</span></dt>
+<dd class="field-even"><p>list[dict]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="BlueOrigin.pretraitement.filtrage_donnees.FiltrageDonnees.write_csv_file">
+<span class="sig-name descname"><span class="pre">write_csv_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fieldnames</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BlueOrigin.pretraitement.filtrage_donnees.FiltrageDonnees.write_csv_file" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Écrit les données dans un fichier CSV.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filename</strong> (<em>str</em>) – Le nom du fichier CSV de sortie.</p></li>
+<li><p><strong>data</strong> (<em>list</em><em>[</em><em>dict</em><em>]</em>) – Les données à écrire dans le fichier CSV.</p></li>
+<li><p><strong>fieldnames</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – Les noms de colonnes du fichier CSV.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-BlueOrigin.pretraitement">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-BlueOrigin.pretraitement" title="Lien permanent vers cette rubrique"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pied de page">
+        <a href="BlueOrigin.interface_utilisateur.html" class="btn btn-neutral float-left" title="BlueOrigin.interface_utilisateur package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Précédent</a>
+        <a href="globs.html" class="btn btn-neutral float-right" title="globs module" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023.</p>
+  </div>
+
+  Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a>
+    fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
