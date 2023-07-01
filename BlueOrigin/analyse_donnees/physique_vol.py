@@ -3,7 +3,7 @@
 from math import sqrt
 import numpy as np
 
-
+#nulllllllllllllllllllllllllll
 class PhysiqueVol:
     g = 9.81  # Accélération gravitationnelle (m/s^2)
     isp = 315  # Impulsion spécifique du moteur (s)

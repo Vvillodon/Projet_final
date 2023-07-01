@@ -12,6 +12,7 @@ def launch_rocket():
     Fonction appelée lors du clic sur le bouton de lancement.
     Récupère les valeurs saisies et effectue une action en conséquence.
     """
+
     wind_speed = float(wind_speed_entry.get())  # Récupère la vitesse du vent saisie par l'utilisateur
     payload_mass = int(payload_entry.get())  # Récupère la masse de la charge utile saisie par l'utilisateur
     rayon = float(rayon_gonogo_entry.get())  # Récupère le rayon Go/NoGo saisi par l'utilisateur

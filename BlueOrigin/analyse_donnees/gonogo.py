@@ -5,7 +5,6 @@ class GoNoGo:
     def __init__(self, data, x_cartesian, y_cartesian, z_cartesian, rayon_gonogo):
         """
         Initialise un objet GoNoGo avec les données fournies.
-
         :param data: Les données de la trajectoire de la fusée.
         :param x_cartesian: Liste des valeurs de coordonnée X.
         :param y_cartesian: Liste des valeurs de coordonnée Y.
@@ -26,15 +25,18 @@ class GoNoGo:
     def go_nogo(self):
         """
         Vérifie si la fusée peut atterrir au bon endroit lors du déploiement des aérofreins.
-
-        :return: "True si le GO est atteint, False sinon.
+        :return: True si le GO est atteint, False sinon.
         """
         for i in range(len(self.time)):
+            # Vérification de deux conditions : altitude de la fusée et temps écoulé
             if self.altitude_limit - 1000 < self.altitude[i] < self.altitude_limit + 1000 and self.time[
                 i] > self.time_limit:
+                # Calcul de la distance entre la position de la fusée et le centre de la zone d'atterrissage
                 distance_to_centre = math.sqrt(
                     (self.x_cartesian[i] - self.x_centre) ** 2 + (self.y_cartesian[i] - self.y_centre) ** 2)
                 if distance_to_centre > self.circle_radius:
+                    # La distance est supérieure au rayon, la fusée ne peut pas atterrir au bon endroit
                     return False
                 else:
+                    # La distance est inférieure ou égale au rayon, la fusée peut atterrir au bon endroit
                     return True
