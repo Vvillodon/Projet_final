@@ -43,28 +43,23 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="current">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="contexte.html">Contexte</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">Projet_final</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="BlueOrigin.html">BlueOrigin package</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="BlueOrigin.html#subpackages">Subpackages</a><ul class="current">
 <li class="toctree-l4 current"><a class="current reference internal" href="#">BlueOrigin.affichage_resultats package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="BlueOrigin.analyse_donnees.html">BlueOrigin.analyse_donnees package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="BlueOrigin.conditions_entrees.html">BlueOrigin.conditions_entrees package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="BlueOrigin.interface_utilisateur.html">BlueOrigin.interface_utilisateur package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="BlueOrigin.pretraitement.html">BlueOrigin.pretraitement package</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="BlueOrigin.html#module-BlueOrigin">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="globs.html">globs module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="main.html">main module</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="contexte.html">Contexte</a></li>
-<li class="toctree-l1"><a class="reference internal" href="programme_python.html">Programmme python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="verification_validation.html">Verification et Validition</a></li>
 </ul>
 
         </div>
@@ -100,6 +95,13 @@
 </section>
 <section id="module-BlueOrigin.affichage_resultats.affichage">
 <span id="blueorigin-affichage-resultats-affichage-module"></span><h2>BlueOrigin.affichage_resultats.affichage module<a class="headerlink" href="#module-BlueOrigin.affichage_resultats.affichage" title="Lien permanent vers cette rubrique"></a></h2>
+<p>Description : Ce fichier contient la classe « Affichage » qui permet d’afficher les données de trajectoire et les graphiques associés.</p>
+<p>La classe « Affichage » prend en compte les données de trajectoire ainsi que des paramètres optionnels tels que la vitesse et la poussée. Les principales méthodes de la classe sont « plot_trajectory_interface » et « affichage_physique ».</p>
+<p>La méthode « plot_trajectory_interface » affiche la trajectoire 3D de la fusée avec un cercle de gonogo. Elle utilise un objet Axes3D et un objet Canvas pour l’affichage, ainsi que le rayon du cercle Go/NoGo.</p>
+<p>La méthode « affichage_physique » affiche les graphiques de vitesse, altitude et poussée en fonction du temps.</p>
+<p>Remarques :
+- Ce fichier nécessite le module « matplotlib.pyplot » pour l’affichage des graphiques.
+- Les graphiques sont affichés séparément à l’aide de la méthode « show » de pyplot.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="BlueOrigin.affichage_resultats.affichage.Affichage">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">BlueOrigin.affichage_resultats.affichage.</span></span><span class="sig-name descname"><span class="pre">Affichage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rayon_gonogo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">velocity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thrust</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">effet_vent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BlueOrigin.affichage_resultats.affichage.Affichage" title="Lien permanent vers cette définition"></a></dt>
@@ -113,13 +115,17 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="BlueOrigin.affichage_resultats.affichage.Affichage.affichage_plan_de_vol">
 <span class="sig-name descname"><span class="pre">affichage_plan_de_vol</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plan_vol_final</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BlueOrigin.affichage_resultats.affichage.Affichage.affichage_plan_de_vol" title="Lien permanent vers cette définition"></a></dt>
-<dd><p>Affiche le plan de vol de la fusée.</p>
+<dd><p>Affiche le plan de vol de la fusée.
+:param plan_vol_final: Dictionnaire contenant les données du plan de vol.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="BlueOrigin.affichage_resultats.affichage.Affichage.plot_trajectory_interface">
 <span class="sig-name descname"><span class="pre">plot_trajectory_interface</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">canvas</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rayon_gonogo</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BlueOrigin.affichage_resultats.affichage.Affichage.plot_trajectory_interface" title="Lien permanent vers cette définition"></a></dt>
-<dd><p>Affiche la trajectoire 3D de la fusée avec un cercle de gonogo.</p>
+<dd><p>Affiche la trajectoire 3D de la fusée avec un cercle de gonogo.
+:param ax: Objet Axes3D pour afficher la trajectoire.
+:param canvas: Objet Canvas pour mettre à jour l’affichage.
+:param rayon_gonogo: Rayon du cercle Go/NoGo.</p>
 </dd></dl>
 
 </dd></dl>

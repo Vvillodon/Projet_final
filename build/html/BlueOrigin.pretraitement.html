@@ -21,7 +21,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Recherche" href="search.html" />
     <link rel="next" title="globs module" href="globs.html" />
-    <link rel="prev" title="BlueOrigin.interface_utilisateur package" href="BlueOrigin.interface_utilisateur.html" /> 
+    <link rel="prev" title="BlueOrigin.conditions_entrees package" href="BlueOrigin.conditions_entrees.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -43,28 +43,23 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="current">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="contexte.html">Contexte</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">Projet_final</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="BlueOrigin.html">BlueOrigin package</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="BlueOrigin.html#subpackages">Subpackages</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="BlueOrigin.affichage_resultats.html">BlueOrigin.affichage_resultats package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="BlueOrigin.analyse_donnees.html">BlueOrigin.analyse_donnees package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="BlueOrigin.conditions_entrees.html">BlueOrigin.conditions_entrees package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="BlueOrigin.interface_utilisateur.html">BlueOrigin.interface_utilisateur package</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">BlueOrigin.pretraitement package</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="BlueOrigin.html#module-BlueOrigin">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="globs.html">globs module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="main.html">main module</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="contexte.html">Contexte</a></li>
-<li class="toctree-l1"><a class="reference internal" href="programme_python.html">Programmme python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="verification_validation.html">Verification et Validition</a></li>
 </ul>
 
         </div>
@@ -100,6 +95,17 @@
 </section>
 <section id="module-BlueOrigin.pretraitement.conversion_temps">
 <span id="blueorigin-pretraitement-conversion-temps-module"></span><h2>BlueOrigin.pretraitement.conversion_temps module<a class="headerlink" href="#module-BlueOrigin.pretraitement.conversion_temps" title="Lien permanent vers cette rubrique"></a></h2>
+<p>Description : Ce fichier contient la classe « ConversionTemps » qui permet de convertir les valeurs de temps de nanosecondes en secondes dans un fichier CSV et de filtrer les données en fonction d’un taux d’échantillonnage.</p>
+<p>La classe « ConversionTemps » prend en compte un fichier CSV d’entrée et un fichier CSV de sortie par défaut. Elle utilise les modules « csv » et « globs » pour la lecture et l’écriture des fichiers CSV, ainsi que pour l’accès aux chemins de fichiers par défaut.</p>
+<p>Les principales méthodes de la classe sont « read_csv_file », « write_csv_file », « convert_nanoseconds_to_seconds », « filter_data_by_sampling_rate » et « process_data ».</p>
+<p>La méthode « read_csv_file » lit un fichier CSV et retourne les données sous forme de liste de dictionnaires.</p>
+<p>La méthode « write_csv_file » écrit les données dans un fichier CSV.</p>
+<p>La méthode « convert_nanoseconds_to_seconds » convertit les valeurs de temps de nanosecondes en secondes dans les données et supprime les données avant un temps spécifié.</p>
+<p>La méthode « filter_data_by_sampling_rate » filtre les données en fonction d’un taux d’échantillonnage spécifié.</p>
+<p>La méthode « process_data » effectue le traitement complet des données, y compris la conversion et le filtrage, et écrit les données traitées dans un nouveau fichier CSV.</p>
+<p>Remarques :
+- Ce fichier nécessite le module « csv » pour la manipulation des fichiers CSV.
+- Les chemins de fichiers d’entrée et de sortie par défaut sont définis dans les variables « CSV_PATH_DEFAULT » et « CSV_FILTERED_PATH_DEFAULT » du module « globs ».</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="BlueOrigin.pretraitement.conversion_temps.ConversionTemps">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">BlueOrigin.pretraitement.conversion_temps.</span></span><span class="sig-name descname"><span class="pre">ConversionTemps</span></span><a class="headerlink" href="#BlueOrigin.pretraitement.conversion_temps.ConversionTemps" title="Lien permanent vers cette définition"></a></dt>
@@ -173,6 +179,17 @@ Supprime les données avant le temps 1602596210210000000.</p>
 </section>
 <section id="module-BlueOrigin.pretraitement.filtrage_donnees">
 <span id="blueorigin-pretraitement-filtrage-donnees-module"></span><h2>BlueOrigin.pretraitement.filtrage_donnees module<a class="headerlink" href="#module-BlueOrigin.pretraitement.filtrage_donnees" title="Lien permanent vers cette rubrique"></a></h2>
+<p>Description : Ce fichier contient la classe « FiltrageDonnees » qui permet de filtrer et de traiter les données d’un fichier CSV.</p>
+<p>La classe « FiltrageDonnees » prend en compte un fichier CSV d’entrée et un fichier CSV de sortie par défaut. Elle utilise les modules « csv » et « math » pour la manipulation des fichiers CSV et les calculs mathématiques, ainsi que le module « globs » pour l’accès aux chemins de fichiers par défaut.</p>
+<p>Les principales méthodes de la classe sont « read_csv_file », « write_csv_file », « convert_ecef_to_cartesian », « filter_and_rename_columns » et « process_data ».</p>
+<p>La méthode « read_csv_file » lit un fichier CSV et retourne les données sous forme de liste de dictionnaires.</p>
+<p>La méthode « write_csv_file » écrit les données dans un fichier CSV.</p>
+<p>La méthode « convert_ecef_to_cartesian » convertit les positions du repère ECEF (Earth-Centered, Earth-Fixed) vers le repère cartésien.</p>
+<p>La méthode « filter_and_rename_columns » filtre les colonnes et les renomme dans les données.</p>
+<p>La méthode « process_data » effectue le traitement complet des données, y compris le filtrage, la conversion ECEF vers le repère cartésien et le renommage des colonnes, et écrit les données traitées dans un nouveau fichier CSV. Elle retourne également les données traitées en tant que listes de listes de float.</p>
+<p>Remarques :
+- Ce fichier nécessite les modules « csv » et « math ».
+- Les chemins de fichiers d’entrée et de sortie par défaut sont définis dans les variables « CSV_FILTERED_PATH_DEFAULT » et « FINAL_CSV_FILTERED_PATH_DEFAULT » du module « globs ».</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="BlueOrigin.pretraitement.filtrage_donnees.FiltrageDonnees">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">BlueOrigin.pretraitement.filtrage_donnees.</span></span><span class="sig-name descname"><span class="pre">FiltrageDonnees</span></span><a class="headerlink" href="#BlueOrigin.pretraitement.filtrage_donnees.FiltrageDonnees" title="Lien permanent vers cette définition"></a></dt>
@@ -253,7 +270,7 @@ et le renommage des colonnes. Écrit les données traitées dans un nouveau fich
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pied de page">
-        <a href="BlueOrigin.interface_utilisateur.html" class="btn btn-neutral float-left" title="BlueOrigin.interface_utilisateur package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Précédent</a>
+        <a href="BlueOrigin.conditions_entrees.html" class="btn btn-neutral float-left" title="BlueOrigin.conditions_entrees package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Précédent</a>
         <a href="globs.html" class="btn btn-neutral float-right" title="globs module" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

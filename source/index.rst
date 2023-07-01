@@ -17,18 +17,7 @@ Table des matières
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
 
-   modules
+
    contexte
-   programme_python
-   verification_validation
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-
+   modules

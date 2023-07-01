@@ -1,3 +1,0 @@
-Objectifs du projet
-===================
-

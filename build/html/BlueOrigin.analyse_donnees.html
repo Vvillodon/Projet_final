@@ -43,28 +43,23 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="current">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="contexte.html">Contexte</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">Projet_final</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="BlueOrigin.html">BlueOrigin package</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="BlueOrigin.html#subpackages">Subpackages</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="BlueOrigin.affichage_resultats.html">BlueOrigin.affichage_resultats package</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">BlueOrigin.analyse_donnees package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="BlueOrigin.conditions_entrees.html">BlueOrigin.conditions_entrees package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="BlueOrigin.interface_utilisateur.html">BlueOrigin.interface_utilisateur package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="BlueOrigin.pretraitement.html">BlueOrigin.pretraitement package</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="BlueOrigin.html#module-BlueOrigin">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="globs.html">globs module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="main.html">main module</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="contexte.html">Contexte</a></li>
-<li class="toctree-l1"><a class="reference internal" href="programme_python.html">Programmme python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="verification_validation.html">Verification et Validition</a></li>
 </ul>
 
         </div>
@@ -98,18 +93,14 @@
 <section id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Lien permanent vers cette rubrique"></a></h2>
 </section>
-<section id="module-BlueOrigin.analyse_donnees.cone_limite">
-<span id="blueorigin-analyse-donnees-cone-limite-module"></span><h2>BlueOrigin.analyse_donnees.cone_limite module<a class="headerlink" href="#module-BlueOrigin.analyse_donnees.cone_limite" title="Lien permanent vers cette rubrique"></a></h2>
-<p>DESCRIPTION FICHIER</p>
-<dl class="py class">
-<dt class="sig sig-object py" id="BlueOrigin.analyse_donnees.cone_limite.ConeLimite">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">BlueOrigin.analyse_donnees.cone_limite.</span></span><span class="sig-name descname"><span class="pre">ConeLimite</span></span><a class="headerlink" href="#BlueOrigin.analyse_donnees.cone_limite.ConeLimite" title="Lien permanent vers cette définition"></a></dt>
-<dd><p>Bases : <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-</dd></dl>
-
-</section>
 <section id="module-BlueOrigin.analyse_donnees.effet_vent">
 <span id="blueorigin-analyse-donnees-effet-vent-module"></span><h2>BlueOrigin.analyse_donnees.effet_vent module<a class="headerlink" href="#module-BlueOrigin.analyse_donnees.effet_vent" title="Lien permanent vers cette rubrique"></a></h2>
+<p>Description : Ce fichier contient la classe « EffetVent » qui permet de calculer les effets du vent sur une fusée.</p>
+<p>La classe « EffetVent » utilise les paramètres spécifiés tels que le profil du vent, la masse volumique et la masse à chaque altitude pour effectuer les calculs. Les principales méthodes de la classe sont « force_vent » et « decalage ».</p>
+<p>La méthode « force_vent » calcule la force du vent appliquée sur la surface projetée de la fusée en fonction des vitesses du vent à chaque altitude donnée par le profil du vent. Elle retourne une liste des forces du vent.</p>
+<p>La méthode « decalage » calcule le décalage dû à l’effet du vent sur la fusée. Elle utilise la force du vent calculée précédemment et la masse de la fusée à chaque altitude. Elle retourne une liste des décalages cumulés.</p>
+<p>Remarques :
+- Ce fichier nécessite le module « numpy » pour effectuer les calculs mathématiques.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="BlueOrigin.analyse_donnees.effet_vent.EffetVent">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">BlueOrigin.analyse_donnees.effet_vent.</span></span><span class="sig-name descname"><span class="pre">EffetVent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">profil_vent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">masse_volumique</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">masse</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BlueOrigin.analyse_donnees.effet_vent.EffetVent" title="Lien permanent vers cette définition"></a></dt>
@@ -122,12 +113,8 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="BlueOrigin.analyse_donnees.effet_vent.EffetVent.decalage">
 <span class="sig-name descname"><span class="pre">decalage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#BlueOrigin.analyse_donnees.effet_vent.EffetVent.decalage" title="Lien permanent vers cette définition"></a></dt>
-<dd><p>Calcule le décalage dû à l’effet du vent sur la fusée.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Renvoie<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Liste des décalages cumulés.</p>
-</dd>
-</dl>
+<dd><p>Calcule le décalage dû à l’effet du vent sur la fusée.
+:return: Liste des décalages cumulés.</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -139,12 +126,8 @@
 <dt class="sig sig-object py" id="BlueOrigin.analyse_donnees.effet_vent.EffetVent.force_vent">
 <span class="sig-name descname"><span class="pre">force_vent</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#BlueOrigin.analyse_donnees.effet_vent.EffetVent.force_vent" title="Lien permanent vers cette définition"></a></dt>
 <dd><p>Calcule la force du vent appliquée sur la surface projetée de la fusée en fonction des vitesses du vent à chaque
-altitude données par le profil_vent.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Renvoie<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Liste des forces du vent.</p>
-</dd>
-</dl>
+altitude données par le profil_vent.
+:return: Liste des forces du vent.</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -177,6 +160,11 @@ altitude données par le profil_vent.</p>
 </section>
 <section id="module-BlueOrigin.analyse_donnees.gonogo">
 <span id="blueorigin-analyse-donnees-gonogo-module"></span><h2>BlueOrigin.analyse_donnees.gonogo module<a class="headerlink" href="#module-BlueOrigin.analyse_donnees.gonogo" title="Lien permanent vers cette rubrique"></a></h2>
+<p>Description : Ce fichier contient la classe « GoNoGo » qui permet de vérifier si une fusée peut atterrir au bon endroit lors du déploiement des aérofreins.</p>
+<p>La classe « GoNoGo » prend en compte les données de trajectoire de la fusée, les coordonnées cartésiennes (X, Y, Z), et les paramètres de limite (temps, altitude, rayon). Elle effectue une vérification en deux étapes : la vérification de l’altitude de la fusée et du temps écoulé, puis le calcul de la distance entre la position de la fusée et le centre de la zone d’atterrissage.</p>
+<p>Si la fusée satisfait les conditions d’altitude et de temps, la classe vérifie si la distance calculée est inférieure ou égale au rayon du cercle limite. Si c’est le cas, la fusée peut atterrir au bon endroit et la méthode « go_nogo » renvoie True. Sinon, la méthode renvoie False.</p>
+<p>Remarques :
+- Ce fichier nécessite le module « math » pour les calculs mathématiques.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="BlueOrigin.analyse_donnees.gonogo.GoNoGo">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">BlueOrigin.analyse_donnees.gonogo.</span></span><span class="sig-name descname"><span class="pre">GoNoGo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_cartesian</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_cartesian</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z_cartesian</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rayon_gonogo</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BlueOrigin.analyse_donnees.gonogo.GoNoGo" title="Lien permanent vers cette définition"></a></dt>
@@ -184,12 +172,8 @@ altitude données par le profil_vent.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="BlueOrigin.analyse_donnees.gonogo.GoNoGo.go_nogo">
 <span class="sig-name descname"><span class="pre">go_nogo</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#BlueOrigin.analyse_donnees.gonogo.GoNoGo.go_nogo" title="Lien permanent vers cette définition"></a></dt>
-<dd><p>Vérifie si la fusée peut atterrir au bon endroit lors du déploiement des aérofreins.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Renvoie<span class="colon">:</span></dt>
-<dd class="field-odd"><p>« True si le GO est atteint, False sinon.</p>
-</dd>
-</dl>
+<dd><p>Vérifie si la fusée peut atterrir au bon endroit lors du déploiement des aérofreins.
+:return: True si le GO est atteint, False sinon.</p>
 </dd></dl>
 
 </dd></dl>
@@ -197,7 +181,11 @@ altitude données par le profil_vent.</p>
 </section>
 <section id="module-BlueOrigin.analyse_donnees.physique_vol">
 <span id="blueorigin-analyse-donnees-physique-vol-module"></span><h2>BlueOrigin.analyse_donnees.physique_vol module<a class="headerlink" href="#module-BlueOrigin.analyse_donnees.physique_vol" title="Lien permanent vers cette rubrique"></a></h2>
-<p>DESCRIPTION FICHIER</p>
+<p>Description : Ce fichier contient la classe « PhysiqueVol » qui représente une simulation physique d’un vol de fusée.</p>
+<p>La classe « PhysiqueVol » permet de calculer diverses grandeurs et caractéristiques liées au vol de la fusée, telles que la norme des vitesses et des altitudes, le plan de vol, la variation de vitesse à MECO, le débit massique de carburant, la poussée de la fusée, la masse totale de la fusée à chaque instant, et la distance parcourue par la fusée.</p>
+<p>Ce fichier peut être utilisé comme module pour effectuer des simulations et des analyses physiques dans le contexte des vols de fusée.</p>
+<p>Remarques :
+- Ce fichier nécessite les modules « math » et « numpy » pour certaines opérations mathématiques.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="BlueOrigin.analyse_donnees.physique_vol.PhysiqueVol">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">BlueOrigin.analyse_donnees.physique_vol.</span></span><span class="sig-name descname"><span class="pre">PhysiqueVol</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">masse_payload</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">effet_vent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BlueOrigin.analyse_donnees.physique_vol.PhysiqueVol" title="Lien permanent vers cette définition"></a></dt>
@@ -308,39 +296,6 @@ t_MECO : temps de Main Engine Cut-Off</p>
 
 </dd></dl>
 
-</section>
-<section id="module-BlueOrigin.analyse_donnees.plan_vol">
-<span id="blueorigin-analyse-donnees-plan-vol-module"></span><h2>BlueOrigin.analyse_donnees.plan_vol module<a class="headerlink" href="#module-BlueOrigin.analyse_donnees.plan_vol" title="Lien permanent vers cette rubrique"></a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="BlueOrigin.analyse_donnees.plan_vol.PlanVol">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">BlueOrigin.analyse_donnees.plan_vol.</span></span><span class="sig-name descname"><span class="pre">PlanVol</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BlueOrigin.analyse_donnees.plan_vol.PlanVol" title="Lien permanent vers cette définition"></a></dt>
-<dd><p>Bases : <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<dl class="py method">
-<dt class="sig sig-object py" id="BlueOrigin.analyse_donnees.plan_vol.PlanVol.calcul_valeurs_normees">
-<span class="sig-name descname"><span class="pre">calcul_valeurs_normees</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#BlueOrigin.analyse_donnees.plan_vol.PlanVol.calcul_valeurs_normees" title="Lien permanent vers cette définition"></a></dt>
-<dd><dl class="simple">
-<dt>Calcule la norme des vitesses vx, vy, vz et la norme des altitudes en coordonées cartésiennes x_cart, y_cart,</dt><dd><p>z_cart pour chaque instant t.</p>
-</dd>
-</dl>
-<p>L’origine du repère cartésiens se trouve au pas de tir du lancement de la fusée.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Renvoie<span class="colon">:</span></dt>
-<dd class="field-odd"><p>liste_valeurs_normees : liste de listes contenant chaque temps d’échantillonage et altitude et vitesse</p>
-</dd>
-</dl>
-<p>normées respectives [[to, ho, vo], [t1, h1, v1],…]</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="BlueOrigin.analyse_donnees.plan_vol.PlanVol.creer_plan_vol">
-<span class="sig-name descname"><span class="pre">creer_plan_vol</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#BlueOrigin.analyse_donnees.plan_vol.PlanVol.creer_plan_vol" title="Lien permanent vers cette définition"></a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-</section>
-<section id="module-BlueOrigin.analyse_donnees">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-BlueOrigin.analyse_donnees" title="Lien permanent vers cette rubrique"></a></h2>
 </section>
 </section>
 
