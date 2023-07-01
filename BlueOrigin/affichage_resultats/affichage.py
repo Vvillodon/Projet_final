@@ -1,3 +1,17 @@
+"""
+Description : Ce fichier contient la classe "Affichage" qui permet d'afficher les données de trajectoire et les graphiques associés.
+
+La classe "Affichage" prend en compte les données de trajectoire ainsi que des paramètres optionnels tels que la vitesse et la poussée. Les principales méthodes de la classe sont "plot_trajectory_interface" et "affichage_physique".
+
+La méthode "plot_trajectory_interface" affiche la trajectoire 3D de la fusée avec un cercle de gonogo. Elle utilise un objet Axes3D et un objet Canvas pour l'affichage, ainsi que le rayon du cercle Go/NoGo.
+
+La méthode "affichage_physique" affiche les graphiques de vitesse, altitude et poussée en fonction du temps.
+
+Remarques :
+- Ce fichier nécessite le module "matplotlib.pyplot" pour l'affichage des graphiques.
+- Les graphiques sont affichés séparément à l'aide de la méthode "show" de pyplot.
+"""
+
 import matplotlib.pyplot as plt
 import numpy as np
 

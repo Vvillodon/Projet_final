@@ -1,3 +1,25 @@
+"""
+Description : Ce fichier contient la classe "ConversionTemps" qui permet de convertir les valeurs de temps de nanosecondes en secondes dans un fichier CSV et de filtrer les données en fonction d'un taux d'échantillonnage.
+
+La classe "ConversionTemps" prend en compte un fichier CSV d'entrée et un fichier CSV de sortie par défaut. Elle utilise les modules "csv" et "globs" pour la lecture et l'écriture des fichiers CSV, ainsi que pour l'accès aux chemins de fichiers par défaut.
+
+Les principales méthodes de la classe sont "read_csv_file", "write_csv_file", "convert_nanoseconds_to_seconds", "filter_data_by_sampling_rate" et "process_data".
+
+La méthode "read_csv_file" lit un fichier CSV et retourne les données sous forme de liste de dictionnaires.
+
+La méthode "write_csv_file" écrit les données dans un fichier CSV.
+
+La méthode "convert_nanoseconds_to_seconds" convertit les valeurs de temps de nanosecondes en secondes dans les données et supprime les données avant un temps spécifié.
+
+La méthode "filter_data_by_sampling_rate" filtre les données en fonction d'un taux d'échantillonnage spécifié.
+
+La méthode "process_data" effectue le traitement complet des données, y compris la conversion et le filtrage, et écrit les données traitées dans un nouveau fichier CSV.
+
+Remarques :
+- Ce fichier nécessite le module "csv" pour la manipulation des fichiers CSV.
+- Les chemins de fichiers d'entrée et de sortie par défaut sont définis dans les variables "CSV_PATH_DEFAULT" et "CSV_FILTERED_PATH_DEFAULT" du module "globs".
+"""
+
 import csv  # Importe le module CSV pour lire et écrire des fichiers CSV.
 from globs import (CSV_PATH_DEFAULT, CSV_FILTERED_PATH_DEFAULT)  # Importe les chemins de fichiers par défaut.
 

@@ -1,3 +1,19 @@
+"""
+Description : Ce fichier contient la classe "ProfilVent" qui permet de calculer le profil du vent en fonction de l'altitude.
+
+La classe "ProfilVent" prend en compte les altitudes et la vitesse du vent au niveau du sol, ainsi qu'une valeur optionnelle de rugosité. Les principales méthodes de la classe sont "calcul_vent" et "write_csv_file".
+
+La méthode "calcul_vent" calcule le profil du vent en fonction de l'altitude. Elle retourne un tuple contenant le profil du vent et le profil de masse volumique. Le profil du vent est calculé en utilisant l'équation logarithmique des profils de vent atmosphérique. Le profil de masse volumique est déterminé en fonction de l'altitude.
+
+La méthode "write_csv_file" écrit les données du profil du vent et du profil de masse volumique dans un fichier CSV.
+
+Remarques :
+- Ce fichier nécessite les modules "math", "csv", "numpy" et "matplotlib.pyplot" pour les calculs mathématiques, la manipulation des fichiers CSV et la visualisation des données.
+- Les graphiques sont affichés séparément à l'aide de la méthode "show" de pyplot.
+- Le chemin du fichier CSV de sortie est défini dans la variable "CSV_PATH_PROFIL_VENT" du module "globs".
+"""
+
+
 import math  # Importe le module math pour les calculs mathématiques.
 import csv  # Importe le module CSV pour lire et écrire des fichiers CSV.
 import numpy as np  # Importe le module NumPy pour les opérations sur les tableaux.

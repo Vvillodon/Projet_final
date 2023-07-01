@@ -1,3 +1,15 @@
+"""
+Description : Ce fichier contient la classe "GoNoGo" qui permet de vérifier si une fusée peut atterrir au bon endroit lors du déploiement des aérofreins.
+
+La classe "GoNoGo" prend en compte les données de trajectoire de la fusée, les coordonnées cartésiennes (X, Y, Z), et les paramètres de limite (temps, altitude, rayon). Elle effectue une vérification en deux étapes : la vérification de l'altitude de la fusée et du temps écoulé, puis le calcul de la distance entre la position de la fusée et le centre de la zone d'atterrissage.
+
+Si la fusée satisfait les conditions d'altitude et de temps, la classe vérifie si la distance calculée est inférieure ou égale au rayon du cercle limite. Si c'est le cas, la fusée peut atterrir au bon endroit et la méthode "go_nogo" renvoie True. Sinon, la méthode renvoie False.
+
+Remarques :
+- Ce fichier nécessite le module "math" pour les calculs mathématiques.
+"""
+
+
 import math
 
 

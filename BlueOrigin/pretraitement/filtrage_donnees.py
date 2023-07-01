@@ -1,3 +1,25 @@
+"""
+Description : Ce fichier contient la classe "FiltrageDonnees" qui permet de filtrer et de traiter les données d'un fichier CSV.
+
+La classe "FiltrageDonnees" prend en compte un fichier CSV d'entrée et un fichier CSV de sortie par défaut. Elle utilise les modules "csv" et "math" pour la manipulation des fichiers CSV et les calculs mathématiques, ainsi que le module "globs" pour l'accès aux chemins de fichiers par défaut.
+
+Les principales méthodes de la classe sont "read_csv_file", "write_csv_file", "convert_ecef_to_cartesian", "filter_and_rename_columns" et "process_data".
+
+La méthode "read_csv_file" lit un fichier CSV et retourne les données sous forme de liste de dictionnaires.
+
+La méthode "write_csv_file" écrit les données dans un fichier CSV.
+
+La méthode "convert_ecef_to_cartesian" convertit les positions du repère ECEF (Earth-Centered, Earth-Fixed) vers le repère cartésien.
+
+La méthode "filter_and_rename_columns" filtre les colonnes et les renomme dans les données.
+
+La méthode "process_data" effectue le traitement complet des données, y compris le filtrage, la conversion ECEF vers le repère cartésien et le renommage des colonnes, et écrit les données traitées dans un nouveau fichier CSV. Elle retourne également les données traitées en tant que listes de listes de float.
+
+Remarques :
+- Ce fichier nécessite les modules "csv" et "math".
+- Les chemins de fichiers d'entrée et de sortie par défaut sont définis dans les variables "CSV_FILTERED_PATH_DEFAULT" et "FINAL_CSV_FILTERED_PATH_DEFAULT" du module "globs".
+"""
+
 import csv  # Importe le module CSV pour lire et écrire des fichiers CSV.
 import math  # Importe le module math pour les calculs mathématiques.
 from globs import CSV_FILTERED_PATH_DEFAULT, FINAL_CSV_FILTERED_PATH_DEFAULT  # Importe les chemins des fichiers CSV

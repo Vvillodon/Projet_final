@@ -1,3 +1,16 @@
+"""
+Description : Ce fichier contient la classe "EffetVent" qui permet de calculer les effets du vent sur une fusée.
+
+La classe "EffetVent" utilise les paramètres spécifiés tels que le profil du vent, la masse volumique et la masse à chaque altitude pour effectuer les calculs. Les principales méthodes de la classe sont "force_vent" et "decalage".
+
+La méthode "force_vent" calcule la force du vent appliquée sur la surface projetée de la fusée en fonction des vitesses du vent à chaque altitude donnée par le profil du vent. Elle retourne une liste des forces du vent.
+
+La méthode "decalage" calcule le décalage dû à l'effet du vent sur la fusée. Elle utilise la force du vent calculée précédemment et la masse de la fusée à chaque altitude. Elle retourne une liste des décalages cumulés.
+
+Remarques :
+- Ce fichier nécessite le module "numpy" pour effectuer les calculs mathématiques.
+"""
+
 import numpy as np
 
 
