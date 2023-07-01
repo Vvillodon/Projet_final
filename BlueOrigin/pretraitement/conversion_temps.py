@@ -1,12 +1,12 @@
-import csv
-from globs import (CSV_PATH_DEFAULT, CSV_FILTERED_PATH_DEFAULT)
+import csv  # Importe le module CSV pour lire et écrire des fichiers CSV.
+from globs import (CSV_PATH_DEFAULT, CSV_FILTERED_PATH_DEFAULT)  # Importe les chemins de fichiers par défaut.
 
 
 class ConversionTemps:
     def __init__(self):
-        self.filename = CSV_PATH_DEFAULT
-        self.data = self.read_csv_file()
-        self.output_filename = CSV_FILTERED_PATH_DEFAULT
+        self.filename = CSV_PATH_DEFAULT  # Chemin du fichier CSV d'entrée par défaut.
+        self.data = self.read_csv_file()  # Lit le fichier CSV et stocke les données dans self.data.
+        self.output_filename = CSV_FILTERED_PATH_DEFAULT  # Chemin du fichier CSV de sortie par défaut.
 
     def read_csv_file(self):
         """
@@ -16,9 +16,9 @@ class ConversionTemps:
         """
         data = []
         with open(self.filename, "r") as csvfile:
-            reader = csv.DictReader(csvfile)
+            reader = csv.DictReader(csvfile)  # Crée un lecteur de fichier CSV basé sur des dictionnaires.
             for row in reader:
-                data.append(row)
+                data.append(row)  # Ajoute chaque ligne du fichier CSV à la liste des données.
         return data
 
     def write_csv_file(self, filename, data, fieldnames):
@@ -30,9 +30,10 @@ class ConversionTemps:
         :param fieldnames: Les noms de colonnes du fichier CSV.
         """
         with open(filename, "w", newline="") as csvfile:
-            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-            writer.writeheader()
-            writer.writerows(data)
+            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)  # Crée un écrivain de fichier CSV basé sur des
+            # dictionnaires.
+            writer.writeheader()  # Écrit les noms de colonnes dans le fichier CSV.
+            writer.writerows(data)  # Écrit les données dans le fichier CSV.
 
     def convert_nanoseconds_to_seconds(self):
         """
@@ -73,8 +74,9 @@ class ConversionTemps:
 
         :param sampling_rate: Le taux d'échantillonnage en secondes pour le filtrage des données. Par défaut, la valeur est 1.
         """
-        self.convert_nanoseconds_to_seconds()
-        self.filter_data_by_sampling_rate(sampling_rate)
+        self.convert_nanoseconds_to_seconds()  # Convertit les valeurs de temps en secondes.
+        self.filter_data_by_sampling_rate(sampling_rate)  # Filtre les données en fonction du taux d'échantillonnage.
 
-        fieldnames = self.data[0].keys()
-        self.write_csv_file(self.output_filename, self.data, fieldnames)
+        fieldnames = self.data[0].keys()  # Récupère les noms de colonnes à partir du premier élément des données.
+        self.write_csv_file(self.output_filename, self.data, fieldnames)  # Écrit les données traitées dans un
+        # fichier CSV.
