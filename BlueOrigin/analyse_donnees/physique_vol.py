@@ -1,4 +1,13 @@
-""" DESCRIPTION FICHIER """
+"""
+Description : Ce fichier contient la classe "PhysiqueVol" qui représente une simulation physique d'un vol de fusée.
+
+La classe "PhysiqueVol" permet de calculer diverses grandeurs et caractéristiques liées au vol de la fusée, telles que la norme des vitesses et des altitudes, le plan de vol, la variation de vitesse à MECO, le débit massique de carburant, la poussée de la fusée, la masse totale de la fusée à chaque instant, et la distance parcourue par la fusée.
+
+Ce fichier peut être utilisé comme module pour effectuer des simulations et des analyses physiques dans le contexte des vols de fusée.
+
+Remarques :
+- Ce fichier nécessite les modules "math" et "numpy" pour certaines opérations mathématiques.
+"""
 
 from math import sqrt
 import numpy as np

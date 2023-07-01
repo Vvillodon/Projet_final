@@ -1,8 +1,24 @@
-import math
-import csv
-import numpy as np
-import matplotlib.pyplot as plt
-from globs import CSV_PATH_PROFIL_VENT
+"""
+Description : Ce fichier contient la classe "ProfilVent" qui permet de calculer le profil du vent en fonction de l'altitude.
+
+La classe "ProfilVent" prend en compte les altitudes et la vitesse du vent au niveau du sol, ainsi qu'une valeur optionnelle de rugosité. Les principales méthodes de la classe sont "calcul_vent" et "write_csv_file".
+
+La méthode "calcul_vent" calcule le profil du vent en fonction de l'altitude. Elle retourne un tuple contenant le profil du vent et le profil de masse volumique. Le profil du vent est calculé en utilisant l'équation logarithmique des profils de vent atmosphérique. Le profil de masse volumique est déterminé en fonction de l'altitude.
+
+La méthode "write_csv_file" écrit les données du profil du vent et du profil de masse volumique dans un fichier CSV.
+
+Remarques :
+- Ce fichier nécessite les modules "math", "csv", "numpy" et "matplotlib.pyplot" pour les calculs mathématiques, la manipulation des fichiers CSV et la visualisation des données.
+- Les graphiques sont affichés séparément à l'aide de la méthode "show" de pyplot.
+- Le chemin du fichier CSV de sortie est défini dans la variable "CSV_PATH_PROFIL_VENT" du module "globs".
+"""
+
+
+import math  # Importe le module math pour les calculs mathématiques.
+import csv  # Importe le module CSV pour lire et écrire des fichiers CSV.
+import numpy as np  # Importe le module NumPy pour les opérations sur les tableaux.
+import matplotlib.pyplot as plt  # Importe le module Matplotlib pour la visualisation des données.
+from globs import CSV_PATH_PROFIL_VENT  # Importe le chemin du fichier CSV par défaut.
 
 
 class ProfilVent:
@@ -14,10 +30,10 @@ class ProfilVent:
         :param vitesse_sol: Vitesse du vent au niveau du sol.
         :param rugosite: Valeur de la rugosité (par défaut : 4).
         """
-        self.altitude = altitude
-        self.vitesse_sol = vitesse_sol
-        self.rugosite = rugosite
-        self.output_filename = CSV_PATH_PROFIL_VENT
+        self.altitude = altitude  # Altitudes fournies.
+        self.vitesse_sol = vitesse_sol  # Vitesse du vent au niveau du sol.
+        self.rugosite = rugosite  # Valeur de la rugosité.
+        self.output_filename = CSV_PATH_PROFIL_VENT  # Chemin du fichier CSV de sortie.
 
     def calcul_vent(self):
         """
@@ -25,10 +41,10 @@ class ProfilVent:
 
         :return: Tuple contenant le profil du vent et le profil de masse volumique.
         """
-        z0 = self.rugosite
+        z0 = self.rugosite  # Rugosité.
 
-        V1 = self.vitesse_sol
-        h_zero = self.altitude[0]
+        V1 = self.vitesse_sol  # Vitesse du vent au niveau du sol.
+        h_zero = self.altitude[0]  # Altitude de référence.
 
         # Création du profil de vent retournant une liste de vitesse de vent par altitudes renseignées
         profil_vent = V1 * (np.log(np.divide(self.altitude, z0))) / (np.log(h_zero / z0))
@@ -43,9 +59,11 @@ class ProfilVent:
                 masse_volumique.append(0.0423 * 2.71828 ** (-0.0001 * h))  # Masse volumique de la mésosphère en kg/m^3
             elif h > 12000:
                 h = h - 12000
-                masse_volumique.append(0.025 * 2.71828 ** (-0.00015 * h))  # Masse volumique de la stratosphère en kg/m^3
+                masse_volumique.append(
+                    0.025 * 2.71828 ** (-0.00015 * h))  # Masse volumique de la stratosphère en kg/m^3
             else:
-                masse_volumique.append(1.225 * 2.71828 ** (-0.000125 * h))  # Masse volumique de la troposphère en kg/m^3
+                masse_volumique.append(
+                    1.225 * 2.71828 ** (-0.000125 * h))  # Masse volumique de la troposphère en kg/m^3
 
         plt.figure(figsize=(8, 6))
         plt.plot(profil_vent, self.altitude)
@@ -54,21 +72,24 @@ class ProfilVent:
         plt.title("Profil de vent")
         plt.grid(True)
         plt.show()
-        
-        
-        data = zip(self.altitude, profil_vent, masse_volumique)
-        
-        fieldnames=['Altitude (m)', 'Vitesse du vent (m/s)', 'Masse volumique (kg/m^3)']
-        
-        ProfilVent.write_csv_file(self, self.output_filename, data, fieldnames)
-        
+
+        data = zip(self.altitude, profil_vent, masse_volumique)  # Données à écrire dans le fichier CSV.
+
+        fieldnames = ['Altitude (m)', 'Vitesse du vent (m/s)', 'Masse volumique (kg/m^3)']  # Noms des colonnes du fichier CSV.
+
+        ProfilVent.write_csv_file(self, self.output_filename, data, fieldnames)  # Écriture des données dans le fichier CSV.
+
         return profil_vent, masse_volumique
 
     def write_csv_file(self, filename, data, fieldnames):
-        
+        """
+        Écrit les données dans un fichier CSV.
+
+        :param filename: Nom du fichier CSV.
+        :param data: Données à écrire.
+        :param fieldnames: Noms des colonnes du fichier CSV.
+        """
         with open(filename, "w", newline="") as csvfile:
             writer = csv.writer(csvfile)
-            writer.writerow(fieldnames)
-            writer.writerows(data)
-        
-
+            writer.writerow(fieldnames)  # Écriture de la ligne des noms de colonnes.
+            writer.writerows(data)  # Écriture des données.

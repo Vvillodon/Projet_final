@@ -1,13 +1,34 @@
-import csv
-import math
-from globs import (CSV_FILTERED_PATH_DEFAULT, FINAL_CSV_FILTERED_PATH_DEFAULT)
+"""
+Description : Ce fichier contient la classe "FiltrageDonnees" qui permet de filtrer et de traiter les données d'un fichier CSV.
 
+La classe "FiltrageDonnees" prend en compte un fichier CSV d'entrée et un fichier CSV de sortie par défaut. Elle utilise les modules "csv" et "math" pour la manipulation des fichiers CSV et les calculs mathématiques, ainsi que le module "globs" pour l'accès aux chemins de fichiers par défaut.
+
+Les principales méthodes de la classe sont "read_csv_file", "write_csv_file", "convert_ecef_to_cartesian", "filter_and_rename_columns" et "process_data".
+
+La méthode "read_csv_file" lit un fichier CSV et retourne les données sous forme de liste de dictionnaires.
+
+La méthode "write_csv_file" écrit les données dans un fichier CSV.
+
+La méthode "convert_ecef_to_cartesian" convertit les positions du repère ECEF (Earth-Centered, Earth-Fixed) vers le repère cartésien.
+
+La méthode "filter_and_rename_columns" filtre les colonnes et les renomme dans les données.
+
+La méthode "process_data" effectue le traitement complet des données, y compris le filtrage, la conversion ECEF vers le repère cartésien et le renommage des colonnes, et écrit les données traitées dans un nouveau fichier CSV. Elle retourne également les données traitées en tant que listes de listes de float.
+
+Remarques :
+- Ce fichier nécessite les modules "csv" et "math".
+- Les chemins de fichiers d'entrée et de sortie par défaut sont définis dans les variables "CSV_FILTERED_PATH_DEFAULT" et "FINAL_CSV_FILTERED_PATH_DEFAULT" du module "globs".
+"""
+
+import csv  # Importe le module CSV pour lire et écrire des fichiers CSV.
+import math  # Importe le module math pour les calculs mathématiques.
+from globs import CSV_FILTERED_PATH_DEFAULT, FINAL_CSV_FILTERED_PATH_DEFAULT  # Importe les chemins des fichiers CSV
 
 class FiltrageDonnees:
     def __init__(self):
-        self.filename = CSV_FILTERED_PATH_DEFAULT
-        self.output_filename = FINAL_CSV_FILTERED_PATH_DEFAULT
-        self.data = self.read_csv_file()
+        self.filename = CSV_FILTERED_PATH_DEFAULT  # Nom du fichier CSV à lire.
+        self.output_filename = FINAL_CSV_FILTERED_PATH_DEFAULT  # Nom du fichier CSV de sortie.
+        self.data = self.read_csv_file()  # Données lues à partir du fichier CSV.
 
     def read_csv_file(self):
         """
@@ -42,7 +63,6 @@ class FiltrageDonnees:
     def convert_ecef_to_cartesian(self):
         """
         Convertit les positions du repère ECEF vers le repère LLA (Latitude, Longitude, Altitude).
-
         """
         a = 6372368.0  # Demi-grand axe de la Terre (m)
         for row in self.data:
@@ -93,11 +113,12 @@ class FiltrageDonnees:
         :return: Les données traitées.
         :rtype: list[list[float]]
         """
-        self.filter_and_rename_columns()
-        self.convert_ecef_to_cartesian()
+        self.filter_and_rename_columns()  # Filtre et renomme les colonnes dans les données.
+        self.convert_ecef_to_cartesian()  # Convertit les positions du repère ECEF vers le repère LLA.
 
-        fieldnames = self.data[0].keys()
-        self.write_csv_file(self.output_filename, self.data, fieldnames)
+        fieldnames = self.data[0].keys()  # Récupère les noms des colonnes à partir du premier dictionnaire.
+        self.write_csv_file(self.output_filename, self.data, fieldnames)  # Écrit les données traitées dans un
+        # nouveau fichier CSV.
 
-        data_new = [[float(value) for value in row.values()] for row in self.data]
-        return data_new
+        data_new = [[float(value) for value in row.values()] for row in self.data]  # Convertit les valeurs en float.
+        return data_new  # Retourne les données traitées en tant que listes de listes de float.
