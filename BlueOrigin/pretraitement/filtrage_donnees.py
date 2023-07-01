@@ -72,13 +72,13 @@ class FiltrageDonnees:
         filtered_data = []
         for row in self.data:
             filtered_row = {
-                "TIME[S]": row["TIME_NANOSECONDS_TAI"],
-                "pos_X": row["truth_pos_CON_ECEF_ECEF_M[1]"],
-                "pos_Y": row["truth_pos_CON_ECEF_ECEF_M[2]"],
-                "pos_Z": row["truth_pos_CON_ECEF_ECEF_M[3]"],
-                "vel_X": row["truth_vel_CON_ECEF_ECEF_MpS[1]"],
-                "vel_Y": row["truth_vel_CON_ECEF_ECEF_MpS[2]"],
-                "vel_Z": row["truth_vel_CON_ECEF_ECEF_MpS[3]"]
+                "TIME[S]": row["TIME_NANOSECONDS_TAI "],
+                "pos_X": row["truth_pos_CON_ECEF_ECEF_M[1] "],
+                "pos_Y": row["truth_pos_CON_ECEF_ECEF_M[2] "],
+                "pos_Z": row["truth_pos_CON_ECEF_ECEF_M[3] "],
+                "vel_X": row["truth_vel_CON_ECEF_ECEF_MpS[1] "],
+                "vel_Y": row["truth_vel_CON_ECEF_ECEF_MpS[2] "],
+                "vel_Z": row["truth_vel_CON_ECEF_ECEF_MpS[3] "]
             }
             filtered_data.append(filtered_row)
         self.data = filtered_data
