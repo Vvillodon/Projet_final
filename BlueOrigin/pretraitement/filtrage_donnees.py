@@ -1,13 +1,12 @@
-import csv
-import math
-from globs import (CSV_FILTERED_PATH_DEFAULT, FINAL_CSV_FILTERED_PATH_DEFAULT)
-
+import csv  # Importe le module CSV pour lire et écrire des fichiers CSV.
+import math  # Importe le module math pour les calculs mathématiques.
+from globs import CSV_FILTERED_PATH_DEFAULT, FINAL_CSV_FILTERED_PATH_DEFAULT  # Importe les chemins des fichiers CSV
 
 class FiltrageDonnees:
     def __init__(self):
-        self.filename = CSV_FILTERED_PATH_DEFAULT
-        self.output_filename = FINAL_CSV_FILTERED_PATH_DEFAULT
-        self.data = self.read_csv_file()
+        self.filename = CSV_FILTERED_PATH_DEFAULT  # Nom du fichier CSV à lire.
+        self.output_filename = FINAL_CSV_FILTERED_PATH_DEFAULT  # Nom du fichier CSV de sortie.
+        self.data = self.read_csv_file()  # Données lues à partir du fichier CSV.
 
     def read_csv_file(self):
         """
@@ -42,7 +41,6 @@ class FiltrageDonnees:
     def convert_ecef_to_cartesian(self):
         """
         Convertit les positions du repère ECEF vers le repère LLA (Latitude, Longitude, Altitude).
-
         """
         a = 6372368.0  # Demi-grand axe de la Terre (m)
         for row in self.data:
@@ -74,13 +72,13 @@ class FiltrageDonnees:
         filtered_data = []
         for row in self.data:
             filtered_row = {
-                "TIME[S]": row["TIME_NANOSECONDS_TAI "],
-                "pos_X": row["truth_pos_CON_ECEF_ECEF_M[1] "],
-                "pos_Y": row["truth_pos_CON_ECEF_ECEF_M[2] "],
-                "pos_Z": row["truth_pos_CON_ECEF_ECEF_M[3] "],
-                "vel_X": row["truth_vel_CON_ECEF_ECEF_MpS[1] "],
-                "vel_Y": row["truth_vel_CON_ECEF_ECEF_MpS[2] "],
-                "vel_Z": row["truth_vel_CON_ECEF_ECEF_MpS[3] "]
+                "TIME[S]": row["TIME_NANOSECONDS_TAI"],
+                "pos_X": row["truth_pos_CON_ECEF_ECEF_M[1]"],
+                "pos_Y": row["truth_pos_CON_ECEF_ECEF_M[2]"],
+                "pos_Z": row["truth_pos_CON_ECEF_ECEF_M[3]"],
+                "vel_X": row["truth_vel_CON_ECEF_ECEF_MpS[1]"],
+                "vel_Y": row["truth_vel_CON_ECEF_ECEF_MpS[2]"],
+                "vel_Z": row["truth_vel_CON_ECEF_ECEF_MpS[3]"]
             }
             filtered_data.append(filtered_row)
         self.data = filtered_data
@@ -93,11 +91,12 @@ class FiltrageDonnees:
         :return: Les données traitées.
         :rtype: list[list[float]]
         """
-        self.filter_and_rename_columns()
-        self.convert_ecef_to_cartesian()
+        self.filter_and_rename_columns()  # Filtre et renomme les colonnes dans les données.
+        self.convert_ecef_to_cartesian()  # Convertit les positions du repère ECEF vers le repère LLA.
 
-        fieldnames = self.data[0].keys()
-        self.write_csv_file(self.output_filename, self.data, fieldnames)
+        fieldnames = self.data[0].keys()  # Récupère les noms des colonnes à partir du premier dictionnaire.
+        self.write_csv_file(self.output_filename, self.data, fieldnames)  # Écrit les données traitées dans un
+        # nouveau fichier CSV.
 
-        data_new = [[float(value) for value in row.values()] for row in self.data]
-        return data_new
+        data_new = [[float(value) for value in row.values()] for row in self.data]  # Convertit les valeurs en float.
+        return data_new  # Retourne les données traitées en tant que listes de listes de float.
